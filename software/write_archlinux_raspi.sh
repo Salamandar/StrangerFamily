@@ -49,6 +49,9 @@ prepareInstall() {
   cp "${ScriptDir}/archlinux_prepare_intochroot.sh" "root"
   # Chroot.
   arch-chroot "root" /usr/bin/qemu-arm-static /usr/bin/bash /archlinux_prepare_intochroot.sh
+
+  # Remove traces of install script (password,…)
+  rm "root/archlinux_prepare_intochroot.sh"
 }
 
 prepareDisk() {
