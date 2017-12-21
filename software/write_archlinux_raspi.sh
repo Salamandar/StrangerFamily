@@ -45,13 +45,15 @@ downloadQemu() {
 prepareInstall() {
   # Install qemu into the chroot
   cp $(which qemu-arm-static) "root/usr/bin"
-  # Install our inside-chroot script
-  cp "${ScriptDir}/archlinux_prepare_intochroot.sh" "root"
-  # Chroot.
-  arch-chroot "root" /usr/bin/qemu-arm-static /usr/bin/bash /archlinux_prepare_intochroot.sh
 
-  # Remove traces of install script (password,…)
-  rm "root/archlinux_prepare_intochroot.sh"
+  # Allow access from chroot to our repository
+  mkdir -p "root/repository"
+  mount --bind "${ScriptDir}" "root/repository"
+
+  arch-chroot "root" /usr/bin/qemu-arm-static /usr/bin/bash "/repository/archlinux_prepare_intochroot.sh"
+
+  umount "root/repository"
+  rmdir  "root/repository"
 }
 
 prepareDisk() {
