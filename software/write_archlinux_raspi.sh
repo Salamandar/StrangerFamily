@@ -47,13 +47,10 @@ prepareInstall() {
   cp $(which qemu-arm-static) "root/usr/bin"
 
   # Allow access from chroot to our repository
-  mkdir -p "root/repository"
-  mount --bind "${ScriptDir}" "root/repository"
+  cp -Tr "${ScriptDir}" "root/repository"
+  trap 'rm -rf root/repository' EXIT
 
   arch-chroot "root" /usr/bin/qemu-arm-static /usr/bin/bash "/repository/archlinux_prepare_intochroot.sh"
-
-  umount "root/repository"
-  rmdir  "root/repository"
 }
 
 prepareDisk() {
