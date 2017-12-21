@@ -26,12 +26,18 @@ class StrangerDatabase():
         self.sentences_temp = []
         self.should_echo_last_temp = False
 
+        self.loadPersistent()
+        self.loadTemp()
+
     def loadPersistent(self):
         self.sentences      = self.loadFile(self.persistentFile)
     def loadTemp(self):
         self.sentences_temp = self.loadFile(self.temporaryFile)
 
     def loadFile(self, path):
+        if not path.exists():
+            return []
+
         with path.open() as stream:
             try:
                 data = yaml.load(stream)
@@ -64,7 +70,6 @@ class StrangerDatabase():
 
 def test():
     db = StrangerDatabase()
-    db.loadPersistent()
     db.addSentence('This is a new sentence')
     print(db.getRandSentence())
     print(db.getRandSentence())
