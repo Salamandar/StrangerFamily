@@ -52,6 +52,9 @@ installI2c() {
 
 
 installCode() {
+    # Install dependencies
+    pacman -S --noconfirm --needed python-yaml
+
     # Copy code to the correct location
     cp -Tr "${ScriptDir}/StrangerFamily" /home/mike/StrangerFamily
 
