@@ -130,21 +130,30 @@ def shutoffLights(strip):
     strip.show()
 
 
-# Main program logic follows:
+class LetterLights():
+    def __init__(self, database):
+        self.database = database
+        # Create NeoPixel object with appropriate configuration.
+        strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+        # Initialize the library (must be called once before other functions).
+        strip.begin()
+        shutoffLights(strip)
+
+    def onePrint(self):
+        string = stringdb.getRandSentence().text
+
+        sequenceOfAlphabets = list(string.upper())
+        for letter in sequenceOfAlphabets:
+            lightning(strip, getLetterPositions(letter))
+            time.sleep(0.3)
+
+
+
 if __name__ == '__main__':
     # Process arguments
     opt_parse()
 
-    # Create NeoPixel object with appropriate configuration.
-    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-    # Initialize the library (must be called once before other functions).
-    strip.begin()
-    shutoffLights(strip)
-
     stringdb = database.StrangerDatabase()
-    string = stringdb.getRandSentence().text
+    letterLights = LetterLights(stringdb)
 
-    sequenceOfAlphabets = list(string.upper())
-    for letter in sequenceOfAlphabets:
-        lightning(strip, getLetterPositions(letter))
-        time.sleep(0.3)
+    letterLights.onePrint()

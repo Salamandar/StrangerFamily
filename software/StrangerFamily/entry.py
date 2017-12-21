@@ -4,6 +4,7 @@ from evdev import InputDevice, categorize, ecodes
 # Screen
 
 
+import database
 
 
 scancodes_qwerty = {
@@ -58,7 +59,7 @@ def ListenKeyboard():
 
                     if message_finished:
                         if len(message) != 0:
-                            print(message)
+                            yield message
                         message_finished = False
                         message = ''
 
@@ -66,4 +67,6 @@ def ListenKeyboard():
                     pass
 
 
-ListenKeyboard()
+# Tests
+if __name__ == '__main__':
+    ListenKeyboard()
