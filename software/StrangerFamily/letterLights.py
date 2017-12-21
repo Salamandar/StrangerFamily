@@ -5,16 +5,15 @@
 #
 # Direct port of the Arduino NeoPixel library strandtest example.  Showcases
 # various animations on a strip of NeoPixels.
-import time
-import random
-import os
+import os,sys,signal
+import time,argparse
 from collections import OrderedDict
 
 from neopixel import *
 
-import argparse
-import signal
-import sys
+import database
+
+
 def signal_handler(signal, frame):
     colorWipe(strip, Color(0,0,0))
     sys.exit(0)
@@ -135,18 +134,6 @@ def shutoffLights(strip):
         strip.setPixelColor(i, 0)
     strip.show()
 
-def getSentence():
-    lineNb = 0
-    with open('sentences.txt', 'r') as f:
-        num_lines = sum(1 for line in f)
-        lineNb = random.randint(0, num_lines-1)
-    with open('sentences.txt', 'r') as f:
-        for i, line in enumerate(f):
-            if i == lineNb:
-                return line
-
-
-
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -159,8 +146,9 @@ if __name__ == '__main__':
     strip.begin()
     shutoffLights(strip)
 
+    stringdb = database.StrangerDatabase()
+    string = stringdb.getRandSentence().text
 
-    string = getSentence() #"Friends dont lie"
     sequenceOfAlphabets = list(string.upper())
     for letter in sequenceOfAlphabets:
         lightning(strip, getLetterPositions(letter))
