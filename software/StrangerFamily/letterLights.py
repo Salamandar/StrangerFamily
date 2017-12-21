@@ -1,10 +1,5 @@
 #!/bin/env python3
 
-# NeoPixel library strandtest example
-# Author: Tony DiCola (tony@tonydicola.com)
-#
-# Direct port of the Arduino NeoPixel library strandtest example.  Showcases
-# various animations on a strip of NeoPixels.
 import os,sys,signal
 import time,argparse
 from collections import OrderedDict
@@ -142,7 +137,7 @@ if __name__ == '__main__':
 
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-    # Intialize the library (must be called once before other functions).
+    # Initialize the library (must be called once before other functions).
     strip.begin()
     shutoffLights(strip)
 
