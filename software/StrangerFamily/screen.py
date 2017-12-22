@@ -1,25 +1,41 @@
-import time
-
+import time, threading
 
 
 class LCDScreen():
     def __init__(self):
-        pass
+        self.userText = ''
+        self.ledsText = ''
+        self.ledsProg = 0
+        self.redrawEvent = threading.Event()
+        self.requestRedraw()
 
     def blockingRun(self):
-        while True: time.sleep(1)
+        while self.redrawEvent.wait():
+            self.redrawEvent.clear()
+            self.redraw()
 
+    def redraw(self):
+        print('User Text:', self.userText)
+        print('Leds Text:', self.ledsText)
+        print('Leds Prog:', self.ledsProg)
 
+    def requestRedraw(self):
+        self.redrawEvent.set()
 
     def setUserTextFromKeyboard(self, text):
-        pass
-
-    def setLedsProgression(self, percent):
-        pass
+        self.userText = text
+        self.requestRedraw()
 
     def setLedsText(self, text):
-        pass
+        self.ledsText = text
+        self.requestRedraw()
+
+    def setLedsProgression(self, percent):
+        self.ledsProg = percent
+        self.requestRedraw()
 
     def clear(self, text):
-        pass
-
+        self.userText = ''
+        self.ledsText = ''
+        self.ledsProg = 0
+        self.requestRedraw()

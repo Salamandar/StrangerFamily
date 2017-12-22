@@ -173,9 +173,14 @@ class LetterLights():
 
     def onePrint(self):
         sentence = self.stringdb.getRandSentence()
+        self.lcdscreen.setLedsText(sentence.text)
+        sequenceOfAlphabets = list(sentence.text.upper())
 
-        sequenceOfAlphabets = list(string.text.upper())
+        total = len(sequenceOfAlphabets)
+        i = 0
         for letter in sequenceOfAlphabets:
+            i+=1
+            self.lcdscreen.setLedsProgression(100*i/total)
             self.lightning(getLetterPositions(letter))
             time.sleep(0.3)
 
