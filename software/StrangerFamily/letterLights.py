@@ -126,8 +126,9 @@ def getLetterPositions(letter):
 
 
 class LetterLights():
-    def __init__(self, database):
+    def __init__(self, database, lcdscreen):
         self.stringdb = database
+        self.lcdscreen = lcdscreen
         # Create NeoPixel object with appropriate configuration.
         self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
         # Initialize the library (must be called once before other functions).
@@ -171,9 +172,9 @@ class LetterLights():
         self.strip.show()
 
     def onePrint(self):
-        string = self.stringdb.getRandSentence().text
+        sentence = self.stringdb.getRandSentence()
 
-        sequenceOfAlphabets = list(string.upper())
+        sequenceOfAlphabets = list(string.text.upper())
         for letter in sequenceOfAlphabets:
             self.lightning(getLetterPositions(letter))
             time.sleep(0.3)

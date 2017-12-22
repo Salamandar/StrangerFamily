@@ -6,29 +6,24 @@ import screen
 import letterLights
 
 
-
-
-
-
 if __name__ == '__main__':
+    ############################################################################
+    # Sentences database
     global_database = database.StrangerDatabase()
-
 
     ############################################################################
     # Screen
-
+    lcdscreen = screen.LCDScreen()
     def screen_thread_fn():
-        pass
+        lcdscreen.blockingRun()
 
     screen_thread = threading.Thread(target=screen_thread_fn)
     screen_thread.start()
 
-
     ############################################################################
     # Keyboard
-
     def keyboard_thread_fn():
-        for s in entry.ListenKeyboard():
+        for s in entry.ListenKeyboard(lcdscreen):
             global_database.addSentence(s)
 
     keyboard_thread = threading.Thread(target=keyboard_thread_fn)
@@ -36,9 +31,8 @@ if __name__ == '__main__':
 
     ############################################################################
     # LEDs
-
     def leds_thread_fn():
-        leds = letterLights.LetterLights(global_database)
+        leds = letterLights.LetterLights(global_database, lcdscreen)
         while True:
             leds.onePrint()
             time.sleep(2)
@@ -55,9 +49,4 @@ if __name__ == '__main__':
 
 ## TODO:
 # * write screen implem
-# screen.setUserTextFromKeyboard
-# screen.setLedsProgression
-# screen.setLedsText
-# screen.clear ?
-# * pass screen to ListenKeyboard that will call setUserTextFromKeyboard
 # * pass screen to Leds that will call setLeds*

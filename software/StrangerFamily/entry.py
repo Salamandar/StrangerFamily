@@ -1,8 +1,7 @@
+import time
+
 # Keyboard
 from evdev import InputDevice, categorize, ecodes
-
-# Screen
-
 
 import database
 
@@ -32,7 +31,7 @@ scancodes = scancodes_bepo
 
 
 
-def ListenKeyboard():
+def ListenKeyboard(lcdscreen):
     device = InputDevice("/dev/input/event3")
 
     message = ''
@@ -57,9 +56,13 @@ def ListenKeyboard():
                     else:
                         message += key_lookup
 
+                    lcdscreen.setUserTextFromKeyboard(message)
+
                     if message_finished:
                         if len(message) != 0:
                             yield message
+                            lcdscreen.setUserTextFromKeyboard('OK!')
+                            time.sleep(1)
                         message_finished = False
                         message = ''
 
