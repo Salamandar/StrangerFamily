@@ -40,34 +40,30 @@ def ListenKeyboard(lcdscreen):
     for event in device.read_loop():
         if event.type == ecodes.EV_KEY:
             data = categorize(event)
-            if data.keystate == 1:
-                if data.scancode in scancodes:
-                    key_lookup = scancodes.get(data.scancode)
+            if data.keystate == 1 and data.scancode in scancodes:
+                key_lookup = scancodes.get(data.scancode)
 
-                    if key_lookup is None:
-                        pass
+                if key_lookup is None:
+                    pass
 
-                    elif key_lookup == 'BKSP':
-                        message = message[:-1]
+                elif key_lookup == 'BKSP':
+                    message = message[:-1]
 
-                    elif key_lookup == 'CRLF':
-                        message_finished = True
-
-                    else:
-                        message += key_lookup
-
-                    lcdscreen.setUserTextFromKeyboard(message)
-
-                    if message_finished:
-                        if len(message) != 0:
-                            yield message
-                            lcdscreen.setUserTextFromKeyboard('OK!')
-                            time.sleep(1)
-                        message_finished = False
-                        message = ''
+                elif key_lookup == 'CRLF':
+                    message_finished = True
 
                 else:
-                    pass
+                    message += key_lookup
+
+                lcdscreen.setUserTextFromKeyboard(message)
+
+                if message_finished:
+                    if len(message) != 0:
+                        yield message
+                        lcdscreen.setUserTextFromKeyboard('OK!')
+                        time.sleep(1)
+                    message_finished = False
+                    message = ''
 
 
 # Tests
