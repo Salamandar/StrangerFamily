@@ -3,7 +3,7 @@ import threading, time
 import entry
 import database
 import screen
-# import letterLights
+import letterLights
 
 
 
@@ -38,15 +38,19 @@ if __name__ == '__main__':
     # LEDs
 
     def leds_thread_fn():
-        pass
+        leds = letterLights.LetterLights(global_database)
+        while True:
+            leds.onePrint()
+            time.sleep(2)
 
     leds_thread = threading.Thread(target=leds_thread_fn)
     leds_thread.start()
 
 
-
     # And that's all, main thread doesn't do anything
-    while True: time.sleep(10)
+    screen_thread.join()
+    leds_thread.join()
+    keyboard_thread.join()
 
 
 ## TODO:
