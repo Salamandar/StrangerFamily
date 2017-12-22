@@ -124,58 +124,58 @@ def getLetterPositions(letter):
     print(letterPositions)
     return letterPositions
 
-def lightning(strip, letterPositions):
-    color = Color(255, 255, 255)
-    random.seed(os.urandom(5))
-    timeLeft = 500
-    i = 0
-
-    if letterPositions[1] == 0:
-        time.sleep(timeLeft/1000.0)
-        return
-
-    red = random.randint(0, 255)
-    green = random.randint(0, 255)
-    blue = random.randint(0, 255)
-
-    # i-eme cycle
-    while timeLeft>0:
-        wait_ms = random.randint(0, timeLeft)
-        if i%2==0:
-            color = Color(red, green, blue)
-        else:
-            color = 0
-
-        for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
-            strip.setPixelColor(j, color)
-        strip.show()
-        time.sleep(wait_ms/1000.0)
-        timeLeft = timeLeft-wait_ms
-        i += 1
-    shutoffLights(strip)
-
-
-def shutoffLights(strip):
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, 0)
-    strip.show()
-
 
 class LetterLights():
     def __init__(self, database):
-        self.database = database
+        self.stringdb = database
         # Create NeoPixel object with appropriate configuration.
-        strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+        self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
         # Initialize the library (must be called once before other functions).
-        strip.begin()
-        shutoffLights(strip)
+        self.strip.begin()
+        self.shutoffLights()
+
+    def lightning(self, letterPositions):
+        color = Color(255, 255, 255)
+        random.seed(os.urandom(5))
+        timeLeft = 500
+        i = 0
+
+        if letterPositions[1] == 0:
+            time.sleep(timeLeft/1000.0)
+            return
+
+        red = random.randint(0, 255)
+        green = random.randint(0, 255)
+        blue = random.randint(0, 255)
+
+        # i-eme cycle
+        while timeLeft>0:
+            wait_ms = random.randint(0, timeLeft)
+            if i%2==0:
+                color = Color(red, green, blue)
+            else:
+                color = 0
+
+            for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
+                self.strip.setPixelColor(j, color)
+            self.strip.show()
+            time.sleep(wait_ms/1000.0)
+            timeLeft = timeLeft-wait_ms
+            i += 1
+        self.shutoffLights()
+
+
+    def shutoffLights(self):
+        for i in range(self.strip.numPixels()):
+            self.strip.setPixelColor(i, 0)
+        self.strip.show()
 
     def onePrint(self):
-        string = stringdb.getRandSentence().text
+        string = self.stringdb.getRandSentence().text
 
         sequenceOfAlphabets = list(string.upper())
         for letter in sequenceOfAlphabets:
-            lightning(strip, getLetterPositions(letter))
+            self.lightning(getLetterPositions(letter))
             time.sleep(0.3)
 
 
