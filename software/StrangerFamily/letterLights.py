@@ -73,42 +73,41 @@ LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 #   1 = Sum of previous positions
 #         for j in range(1, 2):
 #            strip.setPixelColor(j, color)
-letters = OrderedDict()
-letters['A']=15
-letters['B']=11
-letters['C']=10
-letters['D']=12
-letters['E']=13
-letters['F']=9
-letters['G']=10
-letters['H']=12
-letters['I']=8
-letters['J']=12
-letters['K']=11
-letters['L']=11
-letters['M']=18
-letters['N']=11
-letters['O']=9
-letters['P']=12
-letters['Q']=11
-letters['R']=13
-letters['S']=10
-letters['T']=11
-letters['U']=9
-letters['V']=11
-letters['W']=17
-letters['X']=13
-letters['Y']=13
-letters['Z']=15
-
-
+letters = OrderedDict([
+    ('A', 15),
+    ('B', 11),
+    ('C', 10),
+    ('D', 12),
+    ('E', 13),
+    ('F',  9),
+    ('G', 10),
+    ('H', 12),
+    ('I',  8),
+    ('J', 12),
+    ('K', 11),
+    ('L', 11),
+    ('M', 18),
+    ('N', 11),
+    ('O',  9),
+    ('P', 12),
+    ('Q', 11),
+    ('R', 13),
+    ('S', 10),
+    ('T', 11),
+    ('U',  9),
+    ('V', 11),
+    ('W', 17),
+    ('X', 13),
+    ('Y', 13),
+    ('Z', 15),
+])
 def getLetterPositions(letter):
     letterPositions = [0, 0]
 
     if letter not in letters.keys():
        return letterPositions
 
-    tableLetterPosition = letters.keys().index(letter)
+    tableLetterPosition = list(letters.keys()).index(letter)
     ledLetterPosition = 0
 
     print(tableLetterPosition);
