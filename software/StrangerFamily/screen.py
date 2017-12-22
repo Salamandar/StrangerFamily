@@ -1,8 +1,9 @@
 import time, threading
-
+import i2c_lib
 
 class LCDScreen():
     def __init__(self):
+        self.lcd = i2c_lib.i2c_lcd()
         self.userText = ''
         self.ledsText = ''
         self.ledsProg = 0
@@ -18,6 +19,10 @@ class LCDScreen():
         print('User Text:', self.userText)
         print('Leds Text:', self.ledsText)
         print('Leds Prog:', self.ledsProg)
+        self.lcd.lcd_display_string(self.userText, 1)
+        self.lcd.lcd_display_string('', 2)
+        self.lcd.lcd_display_string('progression' + self.ledsProg, 3)
+        self.lcd.lcd_display_string(self.ledsText, 4)
 
     def requestRedraw(self):
         self.redrawEvent.set()
