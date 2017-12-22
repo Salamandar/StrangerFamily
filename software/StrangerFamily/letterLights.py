@@ -1,12 +1,47 @@
 #!/bin/env python3
 
 import os,sys,signal
-import time,argparse
+import time,argparse,random
 from collections import OrderedDict
 
-from neopixel import *
-
 import database
+
+try:
+    from neopixel import *
+    print('found')
+except ImportError:
+    # Fake neopixel module
+    class ws():
+        WS2811_STRIP_GRB = 0
+        WS2811_STRIP_RGB = 1
+
+    class Color():
+        def __init__(self, a,b,c):
+            pass
+
+    class Adafruit_NeoPixel():
+        def __init__(self, num, pin, freq_hz=800000, dma=5, invert=False,
+            brightness=255, channel=0, strip_type=ws.WS2811_STRIP_RGB):
+            pass
+        def _cleanup(self):
+            pass
+        def begin(self):
+            pass
+        def show(self):
+            pass
+        def setPixelColor(self, n, color):
+            pass
+        def setPixelColorRGB(self, n, red, green, blue, white = 0):
+            pass
+        def setBrightness(self, brightness):
+            pass
+        def getPixels(self):
+            pass
+        def numPixels(self):
+            return LED_COUNT
+            pass
+        def getPixelColor(self, n):
+            pass
 
 
 def signal_handler(signal, frame):
