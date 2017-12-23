@@ -186,11 +186,17 @@ class LetterLights():
 
 
 
+# Dummy i2c class
+class Nop(object):
+    def nop(*args, **kw): pass
+    def __getattr__(self, _): return self.nop
+
+
 if __name__ == '__main__':
     # Process arguments
     opt_parse()
 
     stringdb = database.StrangerDatabase()
-    letterLights = LetterLights(stringdb)
+    letterLights = LetterLights(stringdb, Nop())
 
     letterLights.onePrint()
