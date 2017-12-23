@@ -1,4 +1,5 @@
 #!/bin/env python3
+import os
 from pathlib import Path
 
 import random
@@ -19,7 +20,7 @@ class Sentence(object):
 class StrangerDatabase():
     def __init__(self):
         super(StrangerDatabase, self).__init__()
-        self.persistentFile = Path('stranger_strings.yaml')
+        self.persistentFile = Path(os.path.realpath(__file__)+'/stranger_strings.yaml')
         self.temporaryFile  = Path('/tmp/stranger_strings_temp.yaml')
 
         self.sentences      = []
@@ -61,6 +62,10 @@ class StrangerDatabase():
 
         else:
             firstLen = len(self.sentences)
+            # Check if no sentences are available
+            if firstLen + len(self.sentences_temp) == 0:
+                return Sentence('', 1)
+
             id = random.randint(0, firstLen + len(self.sentences_temp) - 1)
             if id < firstLen:
                 return self.sentences[id]
