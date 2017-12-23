@@ -87,7 +87,11 @@ Rs = 0b00000001 # Register select bit
 
 class i2c_lcd():
     def __init__(self):
-        self.lcd_device = i2c_device(ADDRESS)
+        self.i2c_ok = True
+        try:
+            self.lcd_device = i2c_device(ADDRESS)
+        except FileNotFoundError as e:
+            self.i2c_ok = False
 
         self.lcd_write(0x03)
         self.lcd_write(0x03)
@@ -102,14 +106,16 @@ class i2c_lcd():
 
     # clocks EN to latch command
     def lcd_strobe(self, data):
-        self.lcd_device.write_cmd(data | En | LCD_BACKLIGHT)
-        time.sleep(.0005)
-        self.lcd_device.write_cmd(((data & ~En) | LCD_BACKLIGHT))
-        time.sleep(.0001)
+        if self.i2c_ok:
+            self.lcd_device.write_cmd(data | En | LCD_BACKLIGHT)
+            time.sleep(.0005)
+            self.lcd_device.write_cmd(((data & ~En) | LCD_BACKLIGHT))
+            time.sleep(.0001)
 
     def lcd_write_four_bits(self, data):
-        self.lcd_device.write_cmd(data | LCD_BACKLIGHT)
-        self.lcd_strobe(data)
+        if self.i2c_ok:
+            self.lcd_device.write_cmd(data | LCD_BACKLIGHT)
+            self.lcd_strobe(data)
 
     # write a command to lcd
     def lcd_write(self, cmd, mode=0):

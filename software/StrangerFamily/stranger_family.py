@@ -49,6 +49,8 @@ if __name__ == '__main__':
     keyboard_thread.join()
 
 
-## TODO:
-# * write screen implem
-# * pass screen to Leds that will call setLeds*
+## TODO on real raspi:
+# * Change input device
+# * Change i2c device address
+# Remove the test "if device not found, please do not fail" for i2c
+
