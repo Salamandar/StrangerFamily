@@ -20,7 +20,7 @@ class Sentence(object):
 class StrangerDatabase():
     def __init__(self):
         super(StrangerDatabase, self).__init__()
-        self.persistentFile = Path(os.path.realpath(__file__)+'/stranger_strings.yaml')
+        self.persistentFile = Path(os.path.dirname(__file__)+'/stranger_strings.yaml')
         self.temporaryFile  = Path('/tmp/stranger_strings_temp.yaml')
 
         self.sentences      = []
