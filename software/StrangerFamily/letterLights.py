@@ -1,7 +1,7 @@
 #!/bin/env python3
 
 import os,sys,signal
-import time,argparse,random
+import time,argparse,random,colorsys
 from collections import OrderedDict
 
 import database
@@ -146,17 +146,21 @@ class LetterLights():
             time.sleep(timeLeft/1000.0)
             return
 
-        red = random.randint(0, 255)
-        green = random.randint(0, 255)
-        blue = random.randint(0, 255)
+        # So we'll do calculations in HSV, then convert to RGB
+        hue = random.randint(0, 255)
+        # Detected on duration of led ON
+        value = 0
+        saturation = 255
 
         # i-eme cycle
         while timeLeft>0:
             wait_ms = random.randint(0, timeLeft)
-            if i%2==0:
-                color = Color(red, green, blue)
+            if i % 2 == 0:
+                value = wait_ms
             else:
-                color = 0
+                value = 0
+
+            color = Color(colorsys.hsv_to_rgb(hue, value, saturation))
 
             for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
                 self.strip.setPixelColor(j, color)
