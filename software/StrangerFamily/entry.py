@@ -27,12 +27,12 @@ scancodes_bepo = {
     86: u'E', 44: u'A', 45: u'Y', 46: u'X',           48: u'K',           50: u'Q', 51: u'G', 52: u'H', 53: u'F',
 }
 
-scancodes = scancodes_bepo
+scancodes = scancodes_qwerty
 
 
 
 def ListenKeyboard(lcdscreen):
-    device = InputDevice("/dev/input/event3")
+    device = InputDevice("/dev/input/event0")
 
     message = ''
     message_finished = False
