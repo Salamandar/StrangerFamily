@@ -10,6 +10,7 @@ try:
     from neopixel import *
     print('found')
 except ImportError:
+    print('neopixel not found!')
     # Fake neopixel module
     class ws():
         WS2811_STRIP_GRB = 0
