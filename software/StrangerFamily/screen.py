@@ -39,8 +39,15 @@ class LCDScreen():
         self.ledsProg = percent
         self.requestRedraw()
 
-    def clear(self, text):
+    def clear(self):
         self.userText = ''
         self.ledsText = ''
         self.ledsProg = 0
         self.requestRedraw()
+
+
+if __name__ == '__main__':
+    lcd = LCDScreen()
+    lcd.clear()
+    lcd.lcd.lcd_display_string('hello world', 1)
+
