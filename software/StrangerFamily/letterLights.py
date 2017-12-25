@@ -201,6 +201,35 @@ class LetterLights():
         time.sleep(timeLeft/1000.0)
         return
 
+    def animationSmooth(self):
+        timeTotal = 500
+        timeRamp  = 100
+        timeLevel = timeTotal - 2 * timeRamp
+
+        hue = random.uniform(0, 1)
+        saturation = 0.9
+
+        steps = 10
+        for k in range(1, steps + 1):
+            print(steps)
+            value = k * 255 / steps
+            yield hsv_to_neopixel_color(hue, saturation, value)
+            time.sleep(timeRamp / steps)
+
+        value = 255
+        yield hsv_to_neopixel_color(hue, saturation, value)
+        time.sleep(timeLevel)
+
+        for k in range(1, steps + 1):
+            print(steps)
+            value = (steps-k) * 255 / steps
+            yield hsv_to_neopixel_color(hue, saturation, value)
+            time.sleep(timeRamp / steps)
+
+        return
+
+
+
 
     def onePrint(self):
         sentence = self.stringdb.getRandSentence()
