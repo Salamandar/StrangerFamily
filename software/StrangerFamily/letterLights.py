@@ -125,6 +125,10 @@ def getLetterPositions(letter):
     # print(letterPositions)
     return letterPositions
 
+def hsv_to_neopixel_color(h, s, v):
+    (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
+    return Color(255 * r, 255 * g, 255 * b)
+
 
 class LetterLights():
     def __init__(self, database, lcdscreen):
@@ -176,20 +180,14 @@ class LetterLights():
         # i-eme cycle
         while timeLeft>0:
             wait_ms = random.randint(0, timeLeft)
-            value = wait_ms / (wait_ms + 100)
 
             if i % 2 == 0:
-                m = 255
+                value = 0
             else:
-                m = 0
+                value = wait_ms / (wait_ms + 100)
 
-            (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
-            ri = int(m*r)
-            gi = int(m*g)
-            bi = int(m*b)
-            color = Color(ri, gi, bi)
+            yield hsv_to_neopixel_color(hue, saturation, value)
 
-            yield color
             time.sleep(wait_ms/1000.0)
             timeLeft = timeLeft-wait_ms
             i += 1
@@ -197,17 +195,9 @@ class LetterLights():
 
     def animationOnOff(self):
         timeLeft = 500
-        m = 255
         hue = random.uniform(0, 1)
-        value = 255
         saturation = 0.9
-        (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
-        ri = int(m*r)
-        gi = int(m*g)
-        bi = int(m*b)
-        color = Color(ri, gi, bi)
-        print(ri, gi, bi)
-        yield color
+        yield hsv_to_neopixel_color(hue, saturation, value)
         time.sleep(timeLeft/1000.0)
         return
 
