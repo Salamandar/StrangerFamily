@@ -155,14 +155,14 @@ class LetterLights():
         # i-eme cycle
         while timeLeft>0:
             wait_ms = random.randint(0, timeLeft)
-            value = wait_ms / (wait_ms + 140)
+            value = wait_ms / (wait_ms + 100)
 
             if i % 2 == 0:
                 m = 255
             else:
                 m = 0
 
-            (r, g, b) = colorsys.hsv_to_rgb(hue, value, saturation)
+            (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
             ri = int(m*r)
             gi = int(m*g)
             bi = int(m*b)
