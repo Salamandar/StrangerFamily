@@ -16,9 +16,9 @@ class LCDScreen():
             self.redraw()
 
     def redraw(self):
-        print('User Text:', self.userText)
-        print('Leds Text:', self.ledsText)
-        print('Leds Prog:', self.ledsProg)
+        # print('User Text:', self.userText)
+        # print('Leds Text:', self.ledsText)
+        # print('Leds Prog:', self.ledsProg)
         self.lcd.lcd_display_string(self.userText, 1)
         self.lcd.lcd_display_string('', 2)
         self.lcd.lcd_display_string('progression' + str(self.ledsProg), 3)

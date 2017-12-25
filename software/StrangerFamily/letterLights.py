@@ -8,7 +8,7 @@ import database
 
 try:
     from neopixel import *
-    print('found')
+    print('neopixel found')
 except ImportError:
     print('neopixel not found!')
     # Fake neopixel module
@@ -111,7 +111,7 @@ def getLetterPositions(letter):
     tableLetterPosition = list(letters.keys()).index(letter)
     ledLetterPosition = 0
 
-    print(tableLetterPosition);
+    # print(tableLetterPosition);
 
     for key in letters:
         if key != letter:
@@ -122,7 +122,7 @@ def getLetterPositions(letter):
     letterPositions[0] = ledLetterPosition
     letterPositions[1] = letters[letter]
     print(letter)
-    print(letterPositions)
+    # print(letterPositions)
     return letterPositions
 
 
@@ -147,20 +147,26 @@ class LetterLights():
             return
 
         # So we'll do calculations in HSV, then convert to RGB
-        hue = random.randint(0, 255)
+        hue = random.uniform(0, 1)
         # Detected on duration of led ON
         value = 0
-        saturation = 255
+        saturation = 0.9
 
         # i-eme cycle
         while timeLeft>0:
             wait_ms = random.randint(0, timeLeft)
-            if i % 2 == 0:
-                value = wait_ms
-            else:
-                value = 0
+            value = wait_ms / (wait_ms + 140)
 
-            color = Color(colorsys.hsv_to_rgb(hue, value, saturation))
+            if i % 2 == 0:
+                m = 255
+            else:
+                m = 0
+
+            (r, g, b) = colorsys.hsv_to_rgb(hue, value, saturation)
+            ri = int(m*r)
+            gi = int(m*g)
+            bi = int(m*b)
+            color = Color(ri, gi, bi)
 
             for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
                 self.strip.setPixelColor(j, color)
