@@ -130,13 +130,21 @@ class LetterLights():
     def __init__(self, database, lcdscreen):
         self.stringdb = database
         self.lcdscreen = lcdscreen
+        self.setAnimation('OnOff')
         # Create NeoPixel object with appropriate configuration.
         self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
         # Initialize the library (must be called once before other functions).
         self.strip.begin()
         self.shutoffLights()
 
-    def lightning(self, letterPositions):
+    def setAnimation(self, name):
+        self.animationMethod = getattr(self, 'animation' + name)
+
+    def animate(self, letterPositions):
+        return self.animationMethod(letterPositions)
+
+
+    def animationLightning(self, letterPositions):
         color = Color(255, 255, 255)
         random.seed(os.urandom(5))
         timeLeft = 500
@@ -176,6 +184,21 @@ class LetterLights():
             i += 1
         self.shutoffLights()
 
+    def animationOnOff(self, letterPositions):
+        m = 255
+        hue = random.uniform(0, 1)
+        value = 0
+        saturation = 0.9
+        (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
+        ri = int(m*r)
+        gi = int(m*g)
+        bi = int(m*b)
+        color = Color(ri, gi, bi)
+
+        for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
+            self.strip.setPixelColor(j, color)
+        self.shutoffLights()
+
 
     def shutoffLights(self):
         for i in range(self.strip.numPixels()):
@@ -192,7 +215,7 @@ class LetterLights():
         for letter in sequenceOfAlphabets:
             i+=1
             self.lcdscreen.setLedsProgression(100*i/total)
-            self.lightning(getLetterPositions(letter))
+            self.animate(getLetterPositions(letter))
             time.sleep(0.3)
 
 
