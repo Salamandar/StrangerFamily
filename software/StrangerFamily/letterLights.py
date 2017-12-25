@@ -130,21 +130,34 @@ class LetterLights():
     def __init__(self, database, lcdscreen):
         self.stringdb = database
         self.lcdscreen = lcdscreen
-        self.setAnimation('OnOff')
         # Create NeoPixel object with appropriate configuration.
         self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
         # Initialize the library (must be called once before other functions).
         self.strip.begin()
         self.shutoffLights()
+        self.animationsList = [func for func in dir(LetterLights) if callable(getattr(LetterLights, func)) and func.startswith('animation')]
+        self.setAnimation('OnOff')
+
+
+    def shutoffLights(self):
+        for i in range(self.strip.numPixels()):
+            self.strip.setPixelColor(i, 0)
+        self.strip.show()
 
     def setAnimation(self, name):
         self.animationMethod = getattr(self, 'animation' + name)
 
+    def setRandAnimation(self):
+        pass
+
     def animate(self, letterPositions):
-        return self.animationMethod(letterPositions)
+        for color in self.animationMethod():
+            for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
+                self.strip.setPixelColor(j, color)
+            self.strip.show()
+        self.shutoffLights()
 
-
-    def animationLightning(self, letterPositions):
+    def animationLightning(self):
         color = Color(255, 255, 255)
         random.seed(os.urandom(5))
         timeLeft = 500
@@ -176,37 +189,28 @@ class LetterLights():
             bi = int(m*b)
             color = Color(ri, gi, bi)
 
-            for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
-                self.strip.setPixelColor(j, color)
-            self.strip.show()
+            yield color
             time.sleep(wait_ms/1000.0)
             timeLeft = timeLeft-wait_ms
             i += 1
-        self.shutoffLights()
+        return
 
-    def animationOnOff(self, letterPositions):
+    def animationOnOff(self):
         timeLeft = 500
         m = 255
         hue = random.uniform(0, 1)
-        value = 0
+        value = 255
         saturation = 0.9
         (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
         ri = int(m*r)
         gi = int(m*g)
         bi = int(m*b)
         color = Color(ri, gi, bi)
-
-        for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
-            self.strip.setPixelColor(j, color)
-        self.strip.show()
+        print(ri, gi, bi)
+        yield color
         time.sleep(timeLeft/1000.0)
-        self.shutoffLights()
+        return
 
-
-    def shutoffLights(self):
-        for i in range(self.strip.numPixels()):
-            self.strip.setPixelColor(i, 0)
-        self.strip.show()
 
     def onePrint(self):
         sentence = self.stringdb.getRandSentence()
