@@ -126,8 +126,8 @@ def getLetterPositions(letter):
     return letterPositions
 
 def hsv_to_neopixel_color(h, s, v):
-    (r, g, b) = colorsys.hsv_to_rgb(hue, saturation, value)
-    return Color(255 * r, 255 * g, 255 * b)
+    (r, g, b) = colorsys.hsv_to_rgb(h, s, v)
+    return Color(int(255 * r), int(255 * g), int(255 * b))
 
 
 class LetterLights():
@@ -140,7 +140,7 @@ class LetterLights():
         self.strip.begin()
         self.shutoffLights()
         self.animationsList = [func for func in dir(LetterLights) if callable(getattr(LetterLights, func)) and func.startswith('animation')]
-        self.setAnimation('OnOff')
+        self.setAnimation('Smooth')
 
 
     def shutoffLights(self):
@@ -202,27 +202,28 @@ class LetterLights():
         return
 
     def animationSmooth(self):
-        timeTotal = 500
-        timeRamp  = 100
+        timeTotal = 500 / 1000.0
+        timeRamp  = 100 / 1000.0
         timeLevel = timeTotal - 2 * timeRamp
 
         hue = random.uniform(0, 1)
         saturation = 0.9
 
-        steps = 10
+        steps = 100
         for k in range(1, steps + 1):
-            print(steps)
-            value = k * 255 / steps
+            v = k * 255 / steps
+            value = v / (v + 100)
             yield hsv_to_neopixel_color(hue, saturation, value)
             time.sleep(timeRamp / steps)
 
-        value = 255
+        v = 255
+        value = v / (v + 100)
         yield hsv_to_neopixel_color(hue, saturation, value)
-        time.sleep(timeLevel)
+        time.sleep(timeTotal)
 
         for k in range(1, steps + 1):
-            print(steps)
-            value = (steps-k) * 255 / steps
+            v = (steps-k) * 255 / steps
+            value = v / (v + 100)
             yield hsv_to_neopixel_color(hue, saturation, value)
             time.sleep(timeRamp / steps)
 
@@ -242,7 +243,7 @@ class LetterLights():
             i+=1
             self.lcdscreen.setLedsProgression(100*i/total)
             self.animate(getLetterPositions(letter))
-            time.sleep(0.3)
+            time.sleep(0.1)
 
 
 
