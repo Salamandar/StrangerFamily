@@ -185,6 +185,7 @@ class LetterLights():
         self.shutoffLights()
 
     def animationOnOff(self, letterPositions):
+        timeLeft = 500
         m = 255
         hue = random.uniform(0, 1)
         value = 0
@@ -197,6 +198,8 @@ class LetterLights():
 
         for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
             self.strip.setPixelColor(j, color)
+        self.strip.show()
+        time.sleep(timeLeft/1000.0)
         self.shutoffLights()
 
 
