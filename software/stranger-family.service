@@ -1,10 +1,10 @@
 [Unit]
 Description=The Stranger Family script
-After=multi-user.target
+DefaultDependencies=false
 
 [Service]
-Type=idle
-ExecStart=/bin/python /home/mike/StrangerFamily/stranger_family.py
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/StrangerFamily/software/StrangerFamily/stranger_family.py
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=sysinit.target
