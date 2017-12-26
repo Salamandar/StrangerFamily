@@ -45,9 +45,9 @@ def ListenKeyboard(lcdscreen):
 
                 if key_lookup is None:
                     pass
-
                 elif key_lookup == 'BKSP':
                     message = message[:-1]
+                    lcdscreen.setUserTextFromKeyboard(message)
 
                 elif key_lookup == 'CRLF':
                     message_finished = True
@@ -59,18 +59,17 @@ def ListenKeyboard(lcdscreen):
                     else:
                         pass
                         # too long for screen, then too long for leds ?
-
-
-
                 if message_finished:
                     if len(message) != 0:
                         yield message
                         lcdscreen.setUserTextFromKeyboard('OK!')
                         time.sleep(1)
+                        lcdscreen.setUserTextFromKeyboard('')
                     message_finished = False
                     message = ''
 
 
 # Tests
 if __name__ == '__main__':
-    ListenKeyboard()
+    for i in ListenKeyboard(''):
+         print(i)
