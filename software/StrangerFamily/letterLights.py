@@ -75,9 +75,9 @@ LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 #         for j in range(1, 2):
 #            strip.setPixelColor(j, color)
 letters = OrderedDict([
-    ('A', 15),
+    ('A', 16),
     ('B', 11),
-    ('C', 10),
+    ('C',  9),
     ('D', 12),
     ('E', 13),
     ('F',  9),
@@ -229,9 +229,6 @@ class LetterLights():
 
         return
 
-
-
-
     def onePrint(self):
         sentence = self.stringdb.getRandSentence()
         self.lcdscreen.setLedsText(sentence.text)
@@ -244,6 +241,8 @@ class LetterLights():
             self.lcdscreen.setLedsProgression(100*i/total)
             self.animate(getLetterPositions(letter))
             time.sleep(0.1)
+            if self.stringdb.should_echo_last_temp:
+                break
 
 
 
