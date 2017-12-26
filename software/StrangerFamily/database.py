@@ -47,8 +47,13 @@ class StrangerDatabase():
                 print(exc)
 
     def saveToTemp(self, string):
-        with open(self.temporaryFile, 'a') as tempFile:
-            tempFile.write(string)
+        if not os.path.isfile(str(self.temporaryFile)):
+            with open(str(self.temporaryFile), 'a') as tempFile:
+                tempFile.write('sentences:\n')
+
+        with open(str(self.temporaryFile), 'a') as tempFile:
+            tempFile.write('  - text: \'' + string + '\'\n')
+            tempFile.write('    speed: 1\n')
 
 
     def addSentence(self, string):
