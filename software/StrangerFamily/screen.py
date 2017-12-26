@@ -28,8 +28,13 @@ class LCDScreen():
         # print('User Text:', self.userText)
         # print('Leds Text:', self.ledsText)
         # print('Leds Prog:', self.ledsProg)
-        line1 = self.userText[              :self.lcd_width  ].ljust(self.lcd_width)
-        line2 = self.userText[self.lcd_width:self.lcd_width*2].ljust(self.lcd_width)
+        if len(self.userText) == 0:
+            text = 'Type your text then press enter!'
+        else:
+            text = self.userText
+
+        line1 = text[              :self.lcd_width  ].ljust(self.lcd_width)
+        line2 = text[self.lcd_width:self.lcd_width*2].ljust(self.lcd_width)
         self.lcd.lcd_display_string(line1, 1)
         self.lcd.lcd_display_string(line2, 2)
 
@@ -38,11 +43,11 @@ class LCDScreen():
 
     def setUserTextFromKeyboard(self, text):
         if len(text) > 2 * self.lcd_width:
-            return false
-        else
+            return False
+        else:
             self.userText = text
             self.requestRedraw()
-            return true
+            return True
 
     def setLedsText(self, text):
         # ledsText = text
