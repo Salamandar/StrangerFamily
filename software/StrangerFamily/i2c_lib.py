@@ -134,7 +134,7 @@ class i2c_lcd():
         location &= 0x7
         self.lcd_write(LCD_SETCGRAMADDR | (location << 3))
         for i in range(8):
-            self.lcd_write(pattern[i], char_mode=True)
+            self.lcd_write(pattern[i])
 
     # put string function
     def lcd_display_string(self, string, line):
@@ -149,6 +149,9 @@ class i2c_lcd():
 
         for char in string:
             self.lcd_write(ord(char), Rs)
+
+    def lcd_home(self):
+        self.lcd_write(LCD_RETURNHOME)
 
     # clear lcd and set to home
     def lcd_clear(self):

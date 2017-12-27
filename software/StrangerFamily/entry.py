@@ -53,9 +53,14 @@ def ListenKeyboard(lcdscreen):
                     message_finished = True
 
                 else:
-                    message += key_lookup
+                    newmsg = message + key_lookup
+                    if lcdscreen.setUserTextFromKeyboard(newmsg):
+                        message = newmsg
+                    else:
+                        pass
+                        # too long for screen, then too long for leds ?
 
-                lcdscreen.setUserTextFromKeyboard(message)
+
 
                 if message_finished:
                     if len(message) != 0:
