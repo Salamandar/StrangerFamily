@@ -202,14 +202,14 @@ class LetterLights():
         return
 
     def animationSmooth(self):
-        timeTotal = 500 / 1000.0
-        timeRamp  = 100 / 1000.0
+        timeTotal = 200.0 / 1000.0
+        timeRamp  = 50.0 / 1000.0
         timeLevel = timeTotal - 2 * timeRamp
 
         hue = random.uniform(0, 1)
         saturation = 0.9
 
-        steps = 100
+        steps = 50
         for k in range(1, steps + 1):
             v = k * 255 / steps
             value = v / (v + 100)
@@ -219,7 +219,7 @@ class LetterLights():
         v = 255
         value = v / (v + 100)
         yield hsv_to_neopixel_color(hue, saturation, value)
-        time.sleep(timeTotal)
+        time.sleep(timeLevel)
 
         for k in range(1, steps + 1):
             v = (steps-k) * 255 / steps
