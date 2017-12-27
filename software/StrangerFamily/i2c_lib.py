@@ -122,6 +122,20 @@ class i2c_lcd():
         self.lcd_write_four_bits(mode | (cmd & 0xF0))
         self.lcd_write_four_bits(mode | ((cmd << 4) & 0xF0))
 
+
+    def create_char(self, location, pattern):
+        """Fill one of the first 8 CGRAM locations with custom characters.
+        The location parameter should be between 0 and 7 and pattern should
+        provide an array of 8 bytes containing the pattern. E.g. you can easyly
+        design your custom character athttp://www.quinapalus.com/hd44780udg.html
+        To show your custom character use eg. lcd.message('\x01')
+        """
+        # only position 0..7 are allowed
+        location &= 0x7
+        self.lcd_write(LCD_SETCGRAMADDR | (location << 3))
+        for i in range(8):
+            self.lcd_write(pattern[i], char_mode=True)
+
     # put string function
     def lcd_display_string(self, string, line):
         if line == 1:
