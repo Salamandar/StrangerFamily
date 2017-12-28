@@ -28,7 +28,7 @@ class StrangerDatabase():
         self.should_echo_last_temp = False
 
         self.loadPersistent()
-        # self.loadTemp()
+        self.loadTemp()
 
     def loadPersistent(self):
         self.sentences      = self.loadFile(self.persistentFile)
