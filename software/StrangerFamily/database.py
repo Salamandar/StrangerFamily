@@ -21,14 +21,14 @@ class StrangerDatabase():
     def __init__(self):
         super(StrangerDatabase, self).__init__()
         self.persistentFile = Path(os.path.dirname(__file__)+'/stranger_strings.yaml')
-        self.temporaryFile  = Path('/tmp/stranger_strings_temp.yaml')
+        self.temporaryFile  = Path(os.path.dirname(__file__)+'/stranger_strings_temp.txt')
 
         self.sentences      = []
         self.sentences_temp = []
         self.should_echo_last_temp = False
 
         self.loadPersistent()
-        self.loadTemp()
+        # self.loadTemp()
 
     def loadPersistent(self):
         self.sentences      = self.loadFile(self.persistentFile)
@@ -46,13 +46,15 @@ class StrangerDatabase():
             except yaml.YAMLError as exc:
                 print(exc)
 
+    def saveToTemp(self, string):
+        with open(self.temporaryFile, 'a') as tempFile:
+            tempFile.write(string)
 
-    def writeFile(self):
-        pass
 
     def addSentence(self, string):
         self.sentences_temp += [ Sentence(string, 1) ]
         self.should_echo_last_temp = True
+        self.saveToTemp(string)
 
 
     def getRandSentence(self):
@@ -73,9 +75,9 @@ class StrangerDatabase():
                 return self.sentences_temp[id - firstLen]
 
 
-def test():
+if __name__ == '__main__':
     db = StrangerDatabase()
     db.addSentence('This is a new sentence')
-    print(db.getRandSentence())
-    print(db.getRandSentence())
-
+    # print(db.getRandSentence())
+    # print(db.getRandSentence())
+    db.saveTemp()
