@@ -74,6 +74,8 @@ class StrangerDatabase():
             else:
                 return self.sentences_temp[id - firstLen]
 
+    def sentencesCount(self):
+        return len(self.sentences) + len(self.sentences_temp)
 
 if __name__ == '__main__':
     db = StrangerDatabase()

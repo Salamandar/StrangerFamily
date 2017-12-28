@@ -66,6 +66,10 @@ class LCDScreen():
         # self.requestRedraw()
         pass
 
+    def setStringsCount(self, count):
+        line4 = 'Nb of sentences: ' + str(count)
+        self.lcd.lcd_display_string(line4, 4)
+
     def clear(self):
         self.userText = ''
         self.ledsText = ''
