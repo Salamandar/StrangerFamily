@@ -283,4 +283,5 @@ if __name__ == '__main__':
     stringdb = database.StrangerDatabase()
     letterLights = LetterLights(stringdb, Nop())
 
-    letterLights.onePrint()
+    # letterLights.onePrint()
+    letterLights.chenillard()
