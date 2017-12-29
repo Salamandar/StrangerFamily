@@ -233,22 +233,23 @@ class LetterLights():
         timeFixed  = 5.0 / 1000.0
         hue = random.uniform(0, 1)
         saturation = 0.9
-        value = 255
-        sizeChenillard = 3
+        sizeChenillard = 10
 
         self.shutoffLights()
-        for i in range(self.strip.numPixels()+sizeChenillard):
+        for i in range(self.strip.numPixels() + sizeChenillard):
+
             hue += 1./self.strip.numPixels()
-            if hue>1:
+            if hue > 1:
                 hue -= 1
-            mcolor = hsv_to_neopixel_color(hue, saturation, value)
 
+            value = 1
             for j in range(sizeChenillard):
-                self.strip.setPixelColor(i-j, hsv_to_neopixel_color(hue, saturation, value))
-                value = value/2
-            self.strip.setPixelColor(i-j-1, 0)
+                if i-j >= 0:
+                    self.strip.setPixelColor(i-j, hsv_to_neopixel_color(hue, saturation, value))
+                    value = value/2
+            if i-j-1 >= 0:
+                self.strip.setPixelColor(i-j-1, 0)
 
-            self.strip.setPixelColor(i, mcolor)
             self.strip.show()
             time.sleep(timeFixed)
 

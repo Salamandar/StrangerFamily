@@ -40,7 +40,8 @@ if __name__ == '__main__':
         leds = letterLights.LetterLights(global_database, lcdscreen)
         while True:
             leds.onePrint()
-            time.sleep(2)
+            leds.chenillard()
+            time.sleep(1)
 
     leds_thread = threading.Thread(target=leds_thread_fn)
     leds_thread.start()
