@@ -22,14 +22,14 @@ if __name__ == '__main__':
     screen_thread = threading.Thread(target=screen_thread_fn)
     screen_thread.start()
 
-    lcdscreen.setStringsCount(global_database.sentencesCount())
+    # lcdscreen.setStringsCount(global_database.sentencesCount())
 
     ############################################################################
     # Keyboard
     def keyboard_thread_fn():
         for s in entry.ListenKeyboard(lcdscreen):
             global_database.addSentence(s)
-            lcdscreen.setStringsCount(global_database.sentencesCount())
+            # lcdscreen.setStringsCount(global_database.sentencesCount())
 
     keyboard_thread = threading.Thread(target=keyboard_thread_fn)
     keyboard_thread.start()
