@@ -156,8 +156,8 @@ class LetterLights():
 
     def animate(self, letterPositions):
         for color in self.animationMethod():
-				for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
-					self.strip.setPixelColor(j, color)
+            for j in range(letterPositions[0], letterPositions[0]+letterPositions[1]):
+                self.strip.setPixelColor(j, color)
             self.strip.show()
         self.shutoffLights()
 
@@ -229,29 +229,29 @@ class LetterLights():
 
         return
 
-	def chenillard(self)
-		timeFixed  = 5.0 / 1000.0
-		hue = random.uniform(0, 1)
+    def chenillard(self):
+        timeFixed  = 5.0 / 1000.0
+        hue = random.uniform(0, 1)
         saturation = 0.9
-		value = 255
-		sizeChenillard = 3
-		
-		animationOnOff(self)
-		for i in range(self.strip.numPixels()+sizeChenillard):
-			hue += 1./self.strip.numPixels()
-			if hue>1:
-				hue -= 1
-			mcolor = hsv_to_neopixel_color(hue, saturation, value)
-				
-		    for j in range(sizeChenillard):
-				self.strip.setPixelColor(i-j, hsv_to_neopixel_color(hue, saturation, value))
-				value = value/2
-			self.strip.setPixelColor(i-j-1, 0)
-			
-			self.strip.setPixelColor(i, mcolor)
-			self.strip.show()
-			time.sleep(timeFixed)
-		
+        value = 255
+        sizeChenillard = 3
+
+        self.shutoffLights()
+        for i in range(self.strip.numPixels()+sizeChenillard):
+            hue += 1./self.strip.numPixels()
+            if hue>1:
+                hue -= 1
+            mcolor = hsv_to_neopixel_color(hue, saturation, value)
+
+            for j in range(sizeChenillard):
+                self.strip.setPixelColor(i-j, hsv_to_neopixel_color(hue, saturation, value))
+                value = value/2
+            self.strip.setPixelColor(i-j-1, 0)
+
+            self.strip.setPixelColor(i, mcolor)
+            self.strip.show()
+            time.sleep(timeFixed)
+
     def onePrint(self):
         sentence = self.stringdb.getRandSentence()
         self.lcdscreen.setLedsText(sentence.text)
