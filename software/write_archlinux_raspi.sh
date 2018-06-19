@@ -1,4 +1,4 @@
-#!/bin/zsh -xe
+#!/bin/bash -xe
 ScriptDir="$(dirname $(readlink -f $0))"
 
 # Download links:

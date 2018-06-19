@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -xe
 ScriptDir="$(dirname $(readlink -f $0))"
 
 updateSystem() {
