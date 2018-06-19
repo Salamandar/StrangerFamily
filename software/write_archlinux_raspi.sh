@@ -51,7 +51,11 @@ prepareInstall() {
   cp -Tr "${ScriptDir}" "root/repository"
   trap 'rm -rf root/repository' EXIT
 
-  arch-chroot "root" /usr/bin/qemu-arm-static /usr/bin/bash "/repository/archlinux_prepare_intochroot.sh"
+  # Workaround if this is / is not a key
+  mkdir -p "root_bind"
+  mount --bind "root" "root_bind"
+  arch-chroot "root_bind" /usr/bin/qemu-arm-static /usr/bin/bash "/repository/archlinux_prepare_intochroot.sh"
+  umount "root_bind"
 }
 
 prepareDisk() {
