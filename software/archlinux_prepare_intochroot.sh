@@ -2,6 +2,7 @@
 ScriptDir="$(dirname $(readlink -f $0))"
 
 updateSystem() {
+    pacman-key --init
     pacman -Syuu --noconfirm
     pacman -S    --noconfirm --needed sudo git base-devel
 }
