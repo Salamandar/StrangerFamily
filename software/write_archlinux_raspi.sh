@@ -39,7 +39,8 @@ extractImage() {
 
 downloadQemu() {
   hash "apt-get" && apt-get install qemu-arm-static
-  hash "yaourt"  && sudo -u $SUDO_USER yaourt -S --noconfirm --needed binfmt-support-git qemu-user-static
+  hash "yaourt"  && sudo -u $SUDO_USER yaourt -S --noconfirm --needed binfmt-support-git qemu-arm-static arch-install-scripts
+  update-binfmts --importdir /usr/lib/binfmt.d/ --enable arm
 }
 
 prepareInstall() {
