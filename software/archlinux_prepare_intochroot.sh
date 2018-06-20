@@ -3,6 +3,7 @@ ScriptDir="$(dirname $(readlink -f $0))"
 
 updateSystem() {
     pacman-key --init
+    pacman-key --populate archlinuxarm
     pacman -Syuu --noconfirm
     pacman -S    --noconfirm --needed sudo git base-devel
 }
