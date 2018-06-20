@@ -44,13 +44,20 @@ downloadQemu() {
   update-binfmts --importdir /usr/lib/binfmt.d/ --enable arm
 }
 
+cleanupInstall() {
+  umount "${WorkingDirectory}/root_bind" --force || true
+  rmdir  "${WorkingDirectory}/root_bind" || true
+
+  rm -rf "${WorkingDirectory}/root/repository" || true
+}
+
 prepareInstall() {
   # Install qemu into the chroot
   cp $(which qemu-arm-static) "root/usr/bin"
 
   # Allow access from chroot to our repository
   cp -Tr "${ScriptDir}" "root/repository"
-  trap 'rm -rf root/repository' EXIT
+  trap 'cleanupInstall' EXIT
 
   # Workaround if this is / is not a key
   mkdir -p "root_bind"
@@ -105,6 +112,7 @@ copyToDisk() {
 
 # Check if launched with sudo
 if [[ -z "$SUDO_USER" ]]; then
+  set +x
   echo "#########################################"
   echo "This script should be executed with sudo."
   echo "#########################################"
