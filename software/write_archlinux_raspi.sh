@@ -40,6 +40,7 @@ extractImage() {
 downloadQemu() {
   hash "apt-get" && apt-get install qemu-arm-static
   hash "yaourt"  && sudo -u $SUDO_USER yaourt -S --noconfirm --needed binfmt-support-git qemu-arm-static arch-install-scripts
+  hash "trizen"  && sudo -u $SUDO_USER trizen -S --noconfirm --needed binfmt-support-git qemu-arm-static arch-install-scripts
   update-binfmts --importdir /usr/lib/binfmt.d/ --enable arm
 }
 
@@ -104,7 +105,9 @@ copyToDisk() {
 
 # Check if launched with sudo
 if [[ -z "$SUDO_USER" ]]; then
+  echo "#########################################"
   echo "This script should be executed with sudo."
+  echo "#########################################"
   exit 1
 fi
 
