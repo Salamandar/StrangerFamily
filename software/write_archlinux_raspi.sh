@@ -67,8 +67,6 @@ prepareInstall() {
 }
 
 prepareDisk() {
-  Disk="$1"
-
   # Umount…
   umount -f ${Disk}? || /bin/true
   sync ; sleep 1
@@ -91,8 +89,6 @@ prepareDisk() {
 }
 
 copyToDisk() {
-  Disk="$1"
-
   # Umount…
   umount -f ${Disk}? || /bin/true
 
@@ -125,5 +121,6 @@ downloadQemu
 extractImage
 prepareInstall
 
+# Disk="$1"
 # prepareDisk
 # copyToDisk
