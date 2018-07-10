@@ -84,3 +84,4 @@ installCode
 
 
 bash
+true
