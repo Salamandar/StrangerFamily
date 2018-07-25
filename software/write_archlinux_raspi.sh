@@ -115,12 +115,38 @@ if [[ -z "$SUDO_USER" ]]; then
   exit 1
 fi
 
+# Check if we should copy to disk
+: ${NO_COPY_SCRIPT:=yes}
+
+if [[ "${NO_COPY_SCRIPT}" == "yes" ]]; then
+  set +x
+  echo "#########################################"
+  echo "Testing mode ; Disk will no be written."
+  echo "#########################################"
+
+  prompt_confirm() {
+    while true; do
+      read -r -n 1 -p "${1:-Continue?} [y/n]: " REPLY
+      case $REPLY in
+        [yY]) echo ; return 0 ;;
+        [nN]) echo ; return 1 ;;
+        *) printf " \033[31m %s \n\033[0m" "invalid input"
+      esac
+    done
+  }
+
+  prompt_confirm "Continue ?" || exit 1
+  set -x
+fi
+
 
 downloadImage
 downloadQemu
 extractImage
 prepareInstall
 
-# Disk="$1"
-# prepareDisk
-# copyToDisk
+if [[ "${NO_COPY_SCRIPT}" == "no" ]]; then
+  Disk="$1"
+  prepareDisk
+  copyToDisk
+fi
