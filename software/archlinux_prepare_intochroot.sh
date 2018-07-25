@@ -72,6 +72,10 @@ installCode() {
     # systemctl status stranger-family # Should be enabled, stopped
 }
 
+installCleanup() {
+    rm /var/cache/pacman/pkg/*.xz
+}
+
 echo "Inside the chroot !"
 
 updateSystem
@@ -83,6 +87,7 @@ installI2c
 
 installCode
 
+installCleanup
 
 bash
 true
