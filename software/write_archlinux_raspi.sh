@@ -97,8 +97,8 @@ copyToDisk() {
   mkdir -p          "mount_root"
   mount "${Disk}2"  "mount_root"
 
-  rsync --aAXv "root/boot/*"  "mount_boot"
-  rsync --aAXv "root/*"       "mount_root"
+  rsync -aAXv "root/boot/"*  "mount_boot"
+  rsync -aAXv "root/"*       "mount_root"
   sync ; sleep 1
 
   umount "mount_boot" "mount_root"
