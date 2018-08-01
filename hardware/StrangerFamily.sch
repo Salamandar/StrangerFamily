@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:StrangerFamily-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -80,8 +79,6 @@ GPIO21
 Text Label 1450 1900 0    60   ~ 0
 GPIO22
 Wire Wire Line
-	2200 2100 1450 2100
-Wire Wire Line
 	2200 2200 1450 2200
 Wire Wire Line
 	2200 2300 1450 2300
@@ -144,22 +141,11 @@ F 3 "~" H 6100 1200 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J1
-U 1 1 5B617F07
-P 5400 1200
-F 0 "J1" V 5400 1050 50  0000 R CNN
-F 1 "Power_Raspi" V 5500 1150 50  0000 C CNN
-F 2 "" H 5400 1200 50  0001 C CNN
-F 3 "~" H 5400 1200 50  0001 C CNN
-	1    5400 1200
-	0    -1   -1   0   
-$EndComp
-$Comp
 L Connector_Generic:Conn_01x03 J3
 U 1 1 5B618089
 P 7850 2300
 F 0 "J3" H 7800 2500 50  0000 L CNN
-F 1 "Output_LEDs" V 7950 2250 50  0000 C CNN
+F 1 "Output_LED_PWM" V 7950 2300 50  0000 C CNN
 F 2 "Connector_JST:JST_XH_S03B-XH-A-1_1x03_P2.50mm_Horizontal" H 7850 2300 50  0001 C CNN
 F 3 "~" H 7850 2300 50  0001 C CNN
 	1    7850 2300
@@ -174,17 +160,6 @@ F 1 "TXB0104PW" H 6250 2650 50  0000 C CNN
 F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 6000 2550 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/txb0104.pdf" H 6110 3395 50  0001 C CNN
 	1    6000 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR04
-U 1 1 5B61A491
-P 5400 1400
-F 0 "#PWR04" H 5400 1150 50  0001 C CNN
-F 1 "GND" H 5405 1227 50  0000 C CNN
-F 2 "" H 5400 1400 50  0001 C CNN
-F 3 "" H 5400 1400 50  0001 C CNN
-	1    5400 1400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -232,17 +207,6 @@ F 3 "" H 6200 1400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:VCC #PWR05
-U 1 1 5B61B390
-P 5500 1400
-F 0 "#PWR05" H 5500 1250 50  0001 C CNN
-F 1 "VCC" V 5517 1528 50  0000 L CNN
-F 2 "" H 5500 1400 50  0001 C CNN
-F 3 "" H 5500 1400 50  0001 C CNN
-	1    5500 1400
-	0    1    1    0   
-$EndComp
-$Comp
 L power:VDD #PWR011
 U 1 1 5B61B439
 P 6100 2600
@@ -276,8 +240,6 @@ F 3 "" H 7950 2500 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	7850 2500 7850 3000
-Wire Wire Line
 	7850 3000 6400 3000
 Text Label 3600 1700 0    50   ~ 0
 PWM0
@@ -285,12 +247,10 @@ Wire Wire Line
 	2700 1700 3600 1700
 Text Label 5600 3000 2    50   ~ 0
 PWM0
-NoConn ~ 6400 3200
 NoConn ~ 6400 3400
 NoConn ~ 6400 3600
 NoConn ~ 5600 3600
 NoConn ~ 5600 3400
-NoConn ~ 5600 3200
 $Comp
 L Device:C_Small C1
 U 1 1 5B61D30C
@@ -364,56 +324,6 @@ F 3 "" H 2100 1050 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Connection ~ 2100 1050
-$Comp
-L Device:C C3
-U 1 1 5B6268EF
-P 3300 900
-F 0 "C3" H 3200 1000 50  0000 L CNN
-F 1 "10u" H 3300 1000 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3338 750 50  0001 C CNN
-F 3 "~" H 3300 900 50  0001 C CNN
-	1    3300 900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C4
-U 1 1 5B62696B
-P 3550 900
-F 0 "C4" H 3450 1000 50  0000 L CNN
-F 1 "10u" H 3550 1000 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3588 750 50  0001 C CNN
-F 3 "~" H 3550 900 50  0001 C CNN
-	1    3550 900 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3300 750  3550 750 
-Wire Wire Line
-	3300 1050 3550 1050
-$Comp
-L power:+5V #PWR0103
-U 1 1 5B6272E8
-P 3300 750
-F 0 "#PWR0103" H 3300 600 50  0001 C CNN
-F 1 "+5V" H 3315 923 50  0000 C CNN
-F 2 "" H 3300 750 50  0001 C CNN
-F 3 "" H 3300 750 50  0001 C CNN
-	1    3300 750 
-	1    0    0    -1  
-$EndComp
-Connection ~ 3300 750 
-$Comp
-L power:GND #PWR0104
-U 1 1 5B627331
-P 3300 1050
-F 0 "#PWR0104" H 3300 800 50  0001 C CNN
-F 1 "GND" H 3305 877 50  0000 C CNN
-F 2 "" H 3300 1050 50  0001 C CNN
-F 3 "" H 3300 1050 50  0001 C CNN
-	1    3300 1050
-	1    0    0    -1  
-$EndComp
-Connection ~ 3300 1050
 $Comp
 L power:GND #PWR0105
 U 1 1 5B6279D5
@@ -496,4 +406,49 @@ NoConn ~ 2700 2300
 NoConn ~ 2700 2200
 NoConn ~ 2700 2000
 NoConn ~ 2700 1900
+Text Label 1250 2100 2    50   ~ 0
+MOSI
+Wire Wire Line
+	1250 2100 2200 2100
+Text Label 5600 3200 2    50   ~ 0
+MOSI
+$Comp
+L Connector_Generic:Conn_01x03 J4
+U 1 1 5B61CB9E
+P 8550 2300
+F 0 "J4" H 8500 2500 50  0000 L CNN
+F 1 "Output_LED_MOSI" V 8650 2300 50  0000 C CNN
+F 2 "Connector_JST:JST_XH_S03B-XH-A-1_1x03_P2.50mm_Horizontal" H 8550 2300 50  0001 C CNN
+F 3 "~" H 8550 2300 50  0001 C CNN
+	1    8550 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 5B61CBA4
+P 8450 2500
+F 0 "#PWR0111" H 8450 2250 50  0001 C CNN
+F 1 "GND" H 8455 2327 50  0000 C CNN
+F 2 "" H 8450 2500 50  0001 C CNN
+F 3 "" H 8450 2500 50  0001 C CNN
+	1    8450 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0112
+U 1 1 5B61CBAA
+P 8650 2500
+F 0 "#PWR0112" H 8650 2350 50  0001 C CNN
+F 1 "VDD" H 8668 2673 50  0000 C CNN
+F 2 "" H 8650 2500 50  0001 C CNN
+F 3 "" H 8650 2500 50  0001 C CNN
+	1    8650 2500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7850 2500 7850 3000
+Wire Wire Line
+	8550 2500 8550 3200
+Wire Wire Line
+	6400 3200 8550 3200
 $EndSCHEMATC
