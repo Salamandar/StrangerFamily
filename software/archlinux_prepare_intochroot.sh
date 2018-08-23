@@ -2,6 +2,7 @@
 ScriptDir="$(dirname $(readlink -f $0))"
 
 updateSystem() {
+    pacman -Syy
     pacman-key --init
     pacman-key --populate archlinuxarm
     pacman -Syuu --noconfirm
