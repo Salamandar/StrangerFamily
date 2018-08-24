@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:StrangerFamily-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -131,7 +132,7 @@ U 1 1 5B617D4C
 P 6100 1200
 F 0 "J2" V 6100 1050 50  0000 R CNN
 F 1 "Power_LEDs" V 6200 1150 50  0000 C CNN
-F 2 "Connector_Phoenix_GMSTB:PhoenixContact_GMSTBA_2,5_2-G_1x02_P7.50mm_Horizontal" H 6100 1200 50  0001 C CNN
+F 2 "Connector_Phoenix_GMSTB:PhoenixContact_GMSTBA_2,5_2-G-7,62_1x02_P7.62mm_Horizontal" H 6100 1200 50  0001 C CNN
 F 3 "~" H 6100 1200 50  0001 C CNN
 	1    6100 1200
 	0    -1   -1   0   
