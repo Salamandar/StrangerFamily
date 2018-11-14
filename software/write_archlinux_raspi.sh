@@ -39,8 +39,8 @@ extractImage() {
 
 downloadQemu() {
   hash "apt-get" && apt-get install qemu-arm-static
-  hash "yaourt"  && sudo -u $SUDO_USER yaourt -S --noconfirm --needed binfmt-support-git qemu-arm-static arch-install-scripts
-  hash "trizen"  && sudo -u $SUDO_USER trizen -S --noconfirm --needed binfmt-support-git qemu-arm-static arch-install-scripts
+  hash "yaourt"  && sudo -u $SUDO_USER yaourt -S --noconfirm --needed binfmt-qemu-static qemu-arm-static arch-install-scripts
+  hash "trizen"  && sudo -u $SUDO_USER trizen -S --noconfirm --needed binfmt-qemu-static qemu-arm-static arch-install-scripts
   update-binfmts --importdir /usr/lib/binfmt.d/ --enable arm
 }
 
@@ -64,6 +64,15 @@ prepareInstall() {
   mount --bind "root" "root_bind"
   arch-chroot "root_bind" /usr/bin/qemu-arm-static /usr/bin/bash "/repository/archlinux_prepare_intochroot.sh"
   umount "root_bind"
+}
+
+compressImage() {
+  tar \
+    --exclude='/tmp/*' \
+    --exclude='/var/cache/pacman/pkg/' \
+    --xattrs -cjpvf \
+    "${WorkingDirectory}/arch_stranger_things.tar.bz2" \
+    "${WorkingDirectory}/root/"
 }
 
 prepareDisk() {
@@ -149,4 +158,6 @@ if [[ "${NO_COPY_SCRIPT}" == "no" ]]; then
   Disk="$1"
   prepareDisk
   copyToDisk
+else
+  compressImage
 fi
