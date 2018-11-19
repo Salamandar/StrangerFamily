@@ -34,9 +34,7 @@ installTrizen() {
 installRpiWs281x() {
     pacman -S --noconfirm --needed python python-setuptools scons swig
 
-    asMike git config --global http.sslverify false
     asMike git clone https://github.com/jgarff/rpi_ws281x /tmp/rpi_ws281x
-    asMike git config --global http.sslverify true
     pushd /tmp/rpi_ws281x
     asMike scons
     pushd python

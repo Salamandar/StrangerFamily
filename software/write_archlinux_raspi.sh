@@ -62,6 +62,11 @@ prepareInstall() {
   # Workaround if this is / is not a key
   mkdir -p "root_bind"
   mount --bind "root" "root_bind"
+
+  # Fix for ca-certificates not updating
+  cp         "/etc/ca-certificates/extracted/tls-ca-bundle.pem" \
+    "root_bind/etc/ca-certificates/extracted/tls-ca-bundle.pem"
+
   arch-chroot "root_bind" /usr/bin/qemu-arm-static /usr/bin/bash "/repository/archlinux_prepare_intochroot.sh"
   umount "root_bind"
 }
