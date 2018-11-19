@@ -67,12 +67,14 @@ prepareInstall() {
 }
 
 compressImage() {
-  tar \
+  tar_image="arch_stranger_things.tar.bz2"
+  echo "Compressing to ${tar_image}…"
+  tar -C "${WorkingDirectory}/root"\
     --exclude='/tmp/*' \
     --exclude='/var/cache/pacman/pkg/' \
     --xattrs -cjpvf \
-    "${WorkingDirectory}/arch_stranger_things.tar.bz2" \
-    "${WorkingDirectory}/root/"
+    "${WorkingDirectory}/${tar_image}" \
+    "."
 }
 
 prepareDisk() {
