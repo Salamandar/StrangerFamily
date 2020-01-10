@@ -57,18 +57,23 @@ while 1:
                 buffer.append(0)
                 buffer.append(0)
                 buffer.append(0)
-        PixelPosition += 1
         buffer += "\n".encode()
     else:
-        buffer.append(0)
-        buffer.append(128)
-        buffer.append(0)
+        buffer.append(ColorRed%256)
+        buffer.append(ColorGreen%256)
+        buffer.append(ColorBlue%256)
+        PixelPosition += 1
+        ser.write(buffer)
 
-    print(buffer)
-    ser.write(buffer)
-    time.sleep(0.1)
-
-    while not ser.in_waiting:
+    if(PixelPosition==PixelNumber):
+        print(buffer)
+        ColorRed+=1
+        ColorGreen+=1
+        ColorBlue+=1
+        PixelPosition = 0
         time.sleep(0.1)
-    while ser.in_waiting:
-        print(ser.readline())
+
+    # while not ser.in_waiting:
+    #     time.sleep(0.1)
+    # while ser.in_waiting:
+    #     print(ser.readline())

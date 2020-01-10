@@ -55,7 +55,7 @@ int state;                   // Define current state
 int readSerial;           // Read Serial data (1)
 int currentLED;           // Needed for assigning the color to the right LED
 int dataReadSize = 0;
-int ledNumber = 0;
+int ledNumber = 24;
 char buffer[10];
 char bufferLed[3];
 
@@ -66,11 +66,13 @@ void setup()
   strip.setBrightness( (255 / 100) * BRIGHTNESS );
 
   setAllLEDs(BLACK, 0);
-  setAllLEDs(STARTCOLOR, 5);
+  // setAllLEDs(STARTCOLOR, 5);
 
   Serial.begin(BAUDRATE);   // Init serial speed
 
   state = STATE_WAITING;    // Initial state: Waiting for prefix
+
+  Serial.println("Ready");
 }
 
 void flush_stream(Stream& serial){
@@ -81,6 +83,7 @@ void flush_stream(Stream& serial){
 
 void loop()
 {
+  if(false)
   switch(state)
   {
     case STATE_WAITING:                  // *** Waiting for prefix ***
@@ -160,6 +163,20 @@ void loop()
       }
       break;
   } // switch(state)
+  else
+  {
+    if( Serial.available() > 2 )       // if we receive more than 2 chars
+    {
+      Serial.readBytes( bufferLed, 3 );   // Abuse buffer to temp store 3 charaters
+      strip.setPixelColor( currentLED++, bufferLed[0], bufferLed[1], bufferLed[2]);  // and assign to LEDs
+      // strip.show();
+    }
+    if(currentLED>ledNumber-1)
+    {
+      currentLED = 0;
+      strip.show();
+    }
+  }
 
 } // loop
 
