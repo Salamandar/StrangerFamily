@@ -1,14 +1,17 @@
-/* Modified and commented by ai.rs
- * t4a_boblight
- * (C) 2014 Hans Luijten, www.tweaking4all.com
- *
- * t4a_boblight is free software and can be distributed and/or modified
- * freely as long as the copyright notice remains in place.
- * Nobody is allowed to charge you for this code.
- * Use of this code is entirely at your own risk.
- */
+// Modified and commented by ai.rs
+// t4a_boblight
+// (C) 2014 Hans Luijten, www.tweaking4all.com
+//
+// t4a_boblight is free software and can be distributed and/or modified
+// freely as long as the copyright notice remains in place.
+// Nobody is allowed to charge you for this code.
+// Use of this code is entirely at your own risk.
+//
+
 
 #include "Adafruit_NeoPixel.h"
+
+#include "serial.hpp"
 
 // DEFINITIONS
 
@@ -75,13 +78,17 @@ void setup()
   Serial.println("Ready");
 }
 
-void flush_stream(Stream& serial){
-  while(serial.available() > 0) {
-    char t = serial.read();
-  }
+void loop() {
+    int id = -1;
+    uint8_t R, G, B;
+
+    receive(id, R, G, B);
+    if (id == -1) return;
+
+    serial_notify(id, R, G, B);
 }
 
-void loop()
+void _loop()
 {
   if(false)
   switch(state)
