@@ -7,11 +7,14 @@ from collections import OrderedDict
 import database
 
 try:
-    from neopixel import *
+    from neopixel_ import *
     print('neopixel found')
 except ImportError:
     print('neopixel not found!')
     # Fake neopixel module
+    import serial
+    import base64
+
     class ws():
         WS2811_STRIP_GRB = 0
         WS2811_STRIP_RGB = 1
@@ -23,7 +26,16 @@ except ImportError:
     class Adafruit_NeoPixel():
         def __init__(self, num, pin, freq_hz=800000, dma=5, invert=False,
             brightness=255, channel=0, strip_type=ws.WS2811_STRIP_RGB):
-            pass
+            print('Initialization serial')
+            ser = serial.Serial(
+            port='/dev/ttyUSB0',
+            baudrate = 115200,
+            parity=serial.PARITY_NONE,
+            stopbits=serial.STOPBITS_ONE,
+            bytesize=serial.EIGHTBITS,
+            timeout=1
+            )
+            time.sleep(2)
         def _cleanup(self):
             pass
         def begin(self):
@@ -31,9 +43,20 @@ except ImportError:
         def show(self):
             pass
         def setPixelColor(self, n, color):
-            pass
+            setPixelColorRGB(self, n, color[0], color[1], color[2])
         def setPixelColorRGB(self, n, red, green, blue, white = 0):
-            pass
+            print("setPixelColorRGB")
+            buffer = bytearray()
+            buffer.append(red)
+            buffer.append(green)
+            buffer.append(blue)
+            n_b64 = base64.b64encode(str(n).encode())
+            ser.write('>'.encode())
+            ser.write(str(n).encode())
+            ser.write(':'.encode())
+            ser.write(n_b64)
+            while ser.in_waiting:
+                print(ser.readline())
         def setBrightness(self, brightness):
             pass
         def getPixels(self):
