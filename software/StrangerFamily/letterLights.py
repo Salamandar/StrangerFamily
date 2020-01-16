@@ -43,7 +43,7 @@ except ImportError:
         def show(self):
             pass
         def setPixelColor(self, n, color):
-            setPixelColorRGB(self, n, color[0], color[1], color[2])
+            self.setPixelColorRGB(n, color[0], color[1], color[2])
         def setPixelColorRGB(self, n, red, green, blue, white = 0):
             print("setPixelColorRGB")
             buffer = bytearray()
