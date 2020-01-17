@@ -53,7 +53,7 @@ except ImportError:
             buffer.append(blue)
             n_b64 = base64.b64encode(str(n).encode())
             self.ser.write('>'.encode())
-            self.ser.write(n_b64)
+            self.ser.write(str(n).encode())
             self.ser.write(':'.encode())
             self.ser.write(base64.b64encode(buffer))
             while self.ser.in_waiting:
