@@ -81,6 +81,7 @@ int receive_base64(char const& separator) {
 
     for (size_t i = 0; i < 30; i++) {
         auto c = Serial.read();
+        Serial.println(c);
         if (isdigit(c) or
             isalpha(c) or
             (c == '+') or
@@ -123,10 +124,14 @@ int parse_base64(uint8_t& _R, uint8_t& _G, uint8_t& _B) {
 
 void receive(int& _id, uint8_t& _R, uint8_t& _G, uint8_t& _B) {
     // Synchronize with an incoming '>'
+    // Serial.println("Starting...");
     receive_start();
 
+    // Serial.println("> received, continue...");
     // Read the serialized int up to the separator
     int id = receive_number(':');
+    Serial.print("id = ");
+    Serial.println(id);
     if (id == -1) return;
 
     if (current_mode == mode::serialized) {
@@ -146,9 +151,10 @@ void receive(int& _id, uint8_t& _R, uint8_t& _G, uint8_t& _B) {
     }
 
     if (current_mode == mode::base64) {
-        if (receive_base64('=') == -1) return;
-        _id = id;
-        parse_base64(_R, _G, _B);
+      // Serial.println("Going Base64...");
+      if (receive_base64('=') == -1) return;
+      _id = id;
+      parse_base64(_R, _G, _B);
     }
 }
 

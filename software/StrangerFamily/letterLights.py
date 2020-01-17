@@ -27,7 +27,7 @@ except ImportError:
         def __init__(self, num, pin, freq_hz=800000, dma=5, invert=False,
             brightness=255, channel=0, strip_type=ws.WS2811_STRIP_RGB):
             print('Initialization serial')
-            ser = serial.Serial(
+            self.ser = serial.Serial(
             port='/dev/ttyUSB0',
             baudrate = 115200,
             parity=serial.PARITY_NONE,
@@ -43,20 +43,21 @@ except ImportError:
         def show(self):
             pass
         def setPixelColor(self, n, color):
-            self.setPixelColorRGB(n, color[0], color[1], color[2])
+            buffer = color.to_bytes(3, 'little')
+            self.setPixelColorRGB(n, buffer[0], buffer[1], buffer[2])
         def setPixelColorRGB(self, n, red, green, blue, white = 0):
-            print("setPixelColorRGB")
+            print('setpixelcolor {} {} {} {}'.format(n, red, green, blue))
             buffer = bytearray()
             buffer.append(red)
             buffer.append(green)
             buffer.append(blue)
             n_b64 = base64.b64encode(str(n).encode())
-            ser.write('>'.encode())
-            ser.write(str(n).encode())
-            ser.write(':'.encode())
-            ser.write(n_b64)
-            while ser.in_waiting:
-                print(ser.readline())
+            self.ser.write('>'.encode())
+            self.ser.write(n_b64)
+            self.ser.write(':'.encode())
+            self.ser.write(base64.b64encode(buffer))
+            while self.ser.in_waiting:
+                print(self.ser.readline())
         def setBrightness(self, brightness):
             pass
         def getPixels(self):
