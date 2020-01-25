@@ -22,7 +22,7 @@
 #define GREEN      0x00FF00  // LED color BLACK
 
 #define DATAPIN    4        // Datapin
-#define LEDCOUNT   24       //  Number of LEDs used for boblight
+#define LEDCOUNT   305       //  Number of LEDs used for boblight
 // LEDCOUNT value is local value in Arduino sketch, for hyperion it doesn't matter it sends prefx characters according to hyperion config
 #define SHOWDELAY  200       // Delay in micro seconds before showing default 200
 #define BAUDRATE   115200// Serial port speed, 460800 tested with Arduino Uno R3 23400 za MEGA, 115200 nano
