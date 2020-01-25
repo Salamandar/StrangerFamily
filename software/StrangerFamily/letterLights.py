@@ -274,7 +274,7 @@ class LetterLights():
                     self.strip.setPixelColor(i-j, hsv_to_neopixel_color(hue, saturation, value))
                     value = value/2
             if i-j-1 >= 0:
-                self.strip.setPixelColor(i-j-1, 0)
+                self.strip.setPixelColor(i-j-1, Color(0,0,0))
 
             self.strip.show()
             time.sleep(timeFixed)
