@@ -20,7 +20,10 @@ except ImportError:
         WS2811_STRIP_RGB = 1
 
     class Color():
-        def __init__(self, a,b,c):
+        def __init__(self, r,g,b):
+            self.R = r
+            self.G = g
+            self.B = b
             pass
 
     class Adafruit_NeoPixel():
@@ -43,8 +46,7 @@ except ImportError:
         def show(self):
             pass
         def setPixelColor(self, n, color):
-            buffer = color.to_bytes(3, 'little')
-            self.setPixelColorRGB(n, buffer[0], buffer[1], buffer[2])
+            self.setPixelColorRGB(n, color.R, color.G, color.B)
         def setPixelColorRGB(self, n, red, green, blue, white = 0):
             print('setpixelcolor {} {} {} {}'.format(n, red, green, blue))
             buffer = bytearray()
