@@ -58,8 +58,9 @@ except ImportError:
             self.ser.write(str(n).encode())
             self.ser.write(':'.encode())
             self.ser.write(base64.b64encode(buffer))
-            while self.ser.in_waiting:
-                print(self.ser.readline())
+            self.ser.write('='.encode())
+            # while self.ser.in_waiting:
+            #     print(self.ser.readline())
         def setBrightness(self, brightness):
             pass
         def getPixels(self):
@@ -84,6 +85,7 @@ def opt_parse():
 
 # LED strip configuration:
 LED_COUNT      = 305     # Number of LED pixels.
+#LED_COUNT      = 24	 # Number of LED circle neopixel (for test).
 LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
 #LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
