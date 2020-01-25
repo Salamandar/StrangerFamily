@@ -171,7 +171,7 @@ class LetterLights():
 
     def shutoffLights(self):
         for i in range(self.strip.numPixels()):
-            self.strip.setPixelColor(i, 0)
+            self.strip.setPixelColor(i, Color(0,0,0))
         self.strip.show()
 
     def setAnimation(self, name):
