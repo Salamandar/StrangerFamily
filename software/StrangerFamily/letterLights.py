@@ -7,23 +7,38 @@ from collections import OrderedDict
 import database
 
 try:
-    from neopixel import *
+    from neopixel_ import *
     print('neopixel found')
 except ImportError:
     print('neopixel not found!')
     # Fake neopixel module
+    import serial
+    import base64
+
     class ws():
         WS2811_STRIP_GRB = 0
         WS2811_STRIP_RGB = 1
 
     class Color():
-        def __init__(self, a,b,c):
+        def __init__(self, r,g,b):
+            self.R = r
+            self.G = g
+            self.B = b
             pass
 
     class Adafruit_NeoPixel():
         def __init__(self, num, pin, freq_hz=800000, dma=5, invert=False,
             brightness=255, channel=0, strip_type=ws.WS2811_STRIP_RGB):
-            pass
+            print('Initialization serial')
+            self.ser = serial.Serial(
+            port='/dev/ttyUSB0',
+            baudrate = 115200,
+            parity=serial.PARITY_NONE,
+            stopbits=serial.STOPBITS_ONE,
+            bytesize=serial.EIGHTBITS,
+            timeout=1
+            )
+            time.sleep(2)
         def _cleanup(self):
             pass
         def begin(self):
@@ -31,9 +46,21 @@ except ImportError:
         def show(self):
             pass
         def setPixelColor(self, n, color):
-            pass
+            self.setPixelColorRGB(n, color.R, color.G, color.B)
         def setPixelColorRGB(self, n, red, green, blue, white = 0):
-            pass
+            print('setpixelcolor {} {} {} {}'.format(n, red, green, blue))
+            buffer = bytearray()
+            buffer.append(red)
+            buffer.append(green)
+            buffer.append(blue)
+            n_b64 = base64.b64encode(str(n).encode())
+            self.ser.write('>'.encode())
+            self.ser.write(str(n).encode())
+            self.ser.write(':'.encode())
+            self.ser.write(base64.b64encode(buffer))
+            self.ser.write('='.encode())
+            # while self.ser.in_waiting:
+            #     print(self.ser.readline())
         def setBrightness(self, brightness):
             pass
         def getPixels(self):
@@ -58,6 +85,7 @@ def opt_parse():
 
 # LED strip configuration:
 LED_COUNT      = 305     # Number of LED pixels.
+#LED_COUNT      = 24	 # Number of LED circle neopixel (for test).
 LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
 #LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
@@ -145,7 +173,7 @@ class LetterLights():
 
     def shutoffLights(self):
         for i in range(self.strip.numPixels()):
-            self.strip.setPixelColor(i, 0)
+            self.strip.setPixelColor(i, Color(0,0,0))
         self.strip.show()
 
     def setAnimation(self, name):
@@ -248,7 +276,7 @@ class LetterLights():
                     self.strip.setPixelColor(i-j, hsv_to_neopixel_color(hue, saturation, value))
                     value = value/2
             if i-j-1 >= 0:
-                self.strip.setPixelColor(i-j-1, 0)
+                self.strip.setPixelColor(i-j-1, Color(0,0,0))
 
             self.strip.show()
             time.sleep(timeFixed)

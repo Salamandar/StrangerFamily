@@ -1,0 +1,951 @@
+sentences:
+  - text: 'WELCOME TO LQDN'
+    speed: 1
+  - text: 'DICKBUTT'
+    speed: 1
+  - text: 'CCC'
+    speed: 1
+  - text: 'TRUST NO ONE '
+    speed: 1
+  - text: 'THE OWL ARE NOT WHAT THEY SEEM'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'MLP SUCKS'
+    speed: 1
+  - text: 'HI NERDS'
+    speed: 1
+  - text: 'DONT PANIC'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'ALL YOUR BASE ARE BELONG TO US'
+    speed: 1
+  - text: 'ALL THINGS WELCOME'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'BUONEAS DIAS'
+    speed: 1
+  - text: 'HHASHRUL'
+    speed: 1
+  - text: 'LOVE FREEDOM'
+    speed: 1
+  - text: 'SOLIDARITY'
+    speed: 1
+  - text: 'KINDER SPIELEN BALL'
+    speed: 1
+  - text: 'FOOBAR'
+    speed: 1
+  - text: 'ICH BIN HIER'
+    speed: 1
+  - text: 'I LOVE ALEX'
+    speed: 1
+  - text: 'OH DEAR'
+    speed: 1
+  - text: 'WELCOME TO LQDN'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'FABIAN'
+    speed: 1
+  - text: 'MAX IST COOL'
+    speed: 1
+  - text: 'HERE ARE DRAGONS'
+    speed: 1
+  - text: 'ONLY A TEST'
+    speed: 1
+  - text: 'TOUCH THE TENTACLE'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'LUKAS STINKT'
+    speed: 1
+  - text: 'OH GOD THE HORROR'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'MOIKKA KAIKILLE TERVEISIA SUOMESTA'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'FNORD'
+    speed: 1
+  - text: 'MIAU'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'GIGAMIAZUUU'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'HELLO CCCC'
+    speed: 1
+  - text: 'I LOVE MY MOM'
+    speed: 1
+  - text: 'QWERTY'
+    speed: 1
+  - text: 'THERE WILL BE FREE BEER'
+    speed: 1
+  - text: 'DONT PANIC'
+    speed: 1
+  - text: 'PASST WIE WURST AUF DOENER'
+    speed: 1
+  - text: 'HALLO MINOU'
+    speed: 1
+  - text: 'HALLO NEELKE'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HI'
+    speed: 1
+  - text: 'HALLO DU DA WIE GEHT ES DIR DENN HEUTE S'
+    speed: 1
+  - text: 'TRUMPUTIN'
+    speed: 1
+  - text: 'NO'
+    speed: 1
+  - text: 'DENIZ IST KLASSE'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'DEINE MAMA'
+    speed: 1
+  - text: 'COFFEENERDS'
+    speed: 1
+  - text: 'VOLIM TE'
+    speed: 1
+  - text: 'KARL THERE FRAGEZEICHEN'
+    speed: 1
+  - text: 'HALLON WELT'
+    speed: 1
+  - text: 'OLY LETS GO'
+    speed: 1
+  - text: 'OLAR FLAVIO'
+    speed: 1
+  - text: 'HALLO CONGRESS'
+    speed: 1
+  - text: 'MONKEYS RULE'
+    speed: 1
+  - text: 'TESST HALLO IS VOLL COOL HERE'
+    speed: 1
+  - text: 'ALL COLOURS ARE BEAUTIFUL'
+    speed: 1
+  - text: 'KOSELIG'
+    speed: 1
+  - text: 'ENDLICH NORMALE LEUTE'
+    speed: 1
+  - text: 'HALLO COMPUTERS'
+    speed: 1
+  - text: 'IM A GHOST'
+    speed: 1
+  - text: 'WENN  WINTER DEINE STIRN BESCHWEREN'
+    speed: 1
+  - text: 'DAFUQ'
+    speed: 1
+  - text: 'YMCA'
+    speed: 1
+  - text: 'TYPE YOUR TEST '
+    speed: 1
+  - text: 'HELLO EVERYONE'
+    speed: 1
+  - text: 'THIS IS SO COOL'
+    speed: 1
+  - text: 'HACKING IS NOT A CRIME'
+    speed: 1
+  - text: 'SUCK NMY PUSSY'
+    speed: 1
+  - text: 'HELLO ERUANNO'
+    speed: 1
+  - text: 'FHESS BESTER MANN'
+    speed: 1
+  - text: 'TEXT'
+    speed: 1
+  - text: 'NO ONE EVER REALLY DIES'
+    speed: 1
+  - text: 'WIE GEHT ES'
+    speed: 1
+  - text: 'RAYNE '
+    speed: 1
+  - text: 'GOOD CCC'
+    speed: 1
+  - text: 'DAVID IS A MONKEY'
+    speed: 1
+  - text: 'PROBA PISANIA'
+    speed: 1
+  - text: 'KIBO'
+    speed: 1
+  - text: 'FINALLY NORMAL PEOPLE'
+    speed: 1
+  - text: 'WHAT IS HAPPENING'
+    speed: 1
+  - text: 'AUDE'
+    speed: 1
+  - text: 'HELP'
+    speed: 1
+  - text: 'HOLLT MICH HIER RAUS ICH BIN EIN STAR'
+    speed: 1
+  - text: 'IMAGINATION IS MORE IMPORTANT'
+    speed: 1
+  - text: 'HAPPY BIRTHDAY'
+    speed: 1
+  - text: 'WHEN THE ANGELS WALK THE EARTH'
+    speed: 1
+  - text: 'RAYNE ARANYA CAAYARIDO CANTO'
+    speed: 1
+  - text: 'HALLO LIEBE MENSCHEN'
+    speed: 1
+  - text: 'YANN'
+    speed: 1
+  - text: 'FROUZE DE COMBAT'
+    speed: 1
+  - text: 'SUPREME COUNCIL OF CYBER SPACE'
+    speed: 1
+  - text: 'JANINE'
+    speed: 1
+  - text: 'WHAT IS THIS'
+    speed: 1
+  - text: 'BORDOK'
+    speed: 1
+  - text: 'MURDOC'
+    speed: 1
+  - text: 'CCC IST TOLL'
+    speed: 1
+  - text: 'HENRY EMP'
+    speed: 1
+  - text: 'KRITHIKA'
+    speed: 1
+  - text: 'WHY HELP ME'
+    speed: 1
+  - text: 'I LIKE IT'
+    speed: 1
+  - text: 'HELLO OUT THERE'
+    speed: 1
+  - text: 'RUN'
+    speed: 1
+  - text: 'HALLO WELT'
+    speed: 1
+  - text: 'ANTANI'
+    speed: 1
+  - text: 'BAMBOOZLE'
+    speed: 1
+  - text: 'SATAN SATAN'
+    speed: 1
+  - text: 'TEA'
+    speed: 1
+  - text: 'AVA'
+    speed: 1
+  - text: 'CITIZEN KINO'
+    speed: 1
+  - text: 'WIKITOLEARN'
+    speed: 1
+  - text: 'BONJOUR'
+    speed: 1
+  - text: 'BONJOUR LES GENS'
+    speed: 1
+  - text: 'HALLO BIATCHHUHUU'
+    speed: 1
+  - text: 'BREW WAT'
+    speed: 1
+  - text: 'DRINK MORE COFFEE'
+    speed: 1
+  - text: 'LOL'
+    speed: 1
+  - text: 'LOLOL'
+    speed: 1
+  - text: 'ACH DAS IST DOCH QUATSCH'
+    speed: 1
+  - text: 'LOL WHATS UP'
+    speed: 1
+  - text: 'THIS IS THE END '
+    speed: 1
+  - text: 'THE QUICK BROWN FOX'
+    speed: 1
+  - text: 'QUAK'
+    speed: 1
+  - text: 'FABRICIO'
+    speed: 1
+  - text: 'TO BE OR NOT TO BE'
+    speed: 1
+  - text: 'HOLY COW'
+    speed: 1
+  - text: 'ADA'
+    speed: 1
+  - text: 'TOPKEK'
+    speed: 1
+  - text: 'THE TROJAN IS A LIE'
+    speed: 1
+  - text: 'BADEN WUERTTEMBERG IST VIEL SCHOENER '
+    speed: 1
+  - text: 'NOBODY CAN STOP INFORMATION INSOMINATION'
+    speed: 1
+  - text: 'SEAT UP'
+    speed: 1
+  - text: 'MARCO'
+    speed: 1
+  - text: 'NO I DONOT WANTO'
+    speed: 1
+  - text: 'HELLO MILLIE'
+    speed: 1
+  - text: 'GOODLUCK IN YOUR PRESENTATION MILLIE'
+    speed: 1
+  - text: 'MUHKUH ON THE SCHUH'
+    speed: 1
+  - text: 'HI'
+    speed: 1
+  - text: 'EINE SEEFAHRT DIE IST LUSTIG'
+    speed: 1
+  - text: 'WTF HALLO'
+    speed: 1
+  - text: 'HALLO PATSCH'
+    speed: 1
+  - text: 'DAFUQ'
+    speed: 1
+  - text: 'I DONT KNOW'
+    speed: 1
+  - text: 'HELLO ITS ME '
+    speed: 1
+  - text: 'WHAT IS LIFE'
+    speed: 1
+  - text: 'PENIS'
+    speed: 1
+  - text: 'I AM NOT APUA'
+    speed: 1
+  - text: 'DENNY'
+    speed: 1
+  - text: 'DENNY HUANG'
+    speed: 1
+  - text: 'WHICH SIDE ARE YOU ON MY PEOPLE'
+    speed: 1
+  - text: 'BEANS'
+    speed: 1
+  - text: 'TYPE YOUR TEXT AND PRESSENTER'
+    speed: 1
+  - text: 'DER MAI IST GEKOMMEN DIE ABAEUM SCHE SDF'
+    speed: 1
+  - text: 'GERMANY'
+    speed: 1
+  - text: 'JO MAMA'
+    speed: 1
+  - text: 'HI ICH BIN DU'
+    speed: 1
+  - text: 'NO COPS IN KREUZBERG NO GOOGLE IN EUROPE'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'THE FOX'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'THIS IS A TEST'
+    speed: 1
+  - text: 'WHGAT'
+    speed: 1
+  - text: 'SORRY'
+    speed: 1
+  - text: 'STRANGER TESTS'
+    speed: 1
+  - text: 'FOOBAR'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'NO JODAS CARAJO'
+    speed: 1
+  - text: 'I SEE DEAD PEOPLE'
+    speed: 1
+  - text: 'HALLO WELT'
+    speed: 1
+  - text: 'I LOVE COFFEE NERDS'
+    speed: 1
+  - text: 'HHH'
+    speed: 1
+  - text: 'HALLO JULIA'
+    speed: 1
+  - text: 'HALLO DAVID'
+    speed: 1
+  - text: 'KLO'
+    speed: 1
+  - text: 'FGHJK'
+    speed: 1
+  - text: 'HI THERE  WHATS UP'
+    speed: 1
+  - text: 'BEPO'
+    speed: 1
+  - text: 'QWERTYUIOP'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'GIS'
+    speed: 1
+  - text: 'HALLO SOENKE'
+    speed: 1
+  - text: 'HI THOMAS'
+    speed: 1
+  - text: 'FJ'
+    speed: 1
+  - text: 'A'
+    speed: 1
+  - text: 'MORE COFFEE'
+    speed: 1
+  - text: 'SALUT TOUT LE MONDE'
+    speed: 1
+  - text: 'VOUS FAITES QUOI '
+    speed: 1
+  - text: 'RUN '
+    speed: 1
+  - text: 'RUN RUN FAST'
+    speed: 1
+  - text: 'RUN'
+    speed: 1
+  - text: 'MOUTH BREATHER'
+    speed: 1
+  - text: 'PUPS'
+    speed: 1
+  - text: 'GUTEN RUTSCH'
+    speed: 1
+  - text: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    speed: 1
+  - text: 'BECCI'
+    speed: 1
+  - text: 'ICH LIEBE DICH'
+    speed: 1
+  - text: 'THEO'
+    speed: 1
+  - text: 'KOMM AUS DEM LOCH'
+    speed: 1
+  - text: 'HOHOHOHO'
+    speed: 1
+  - text: 'LARA IST DOOF'
+    speed: 1
+  - text: 'RIKO'
+    speed: 1
+  - text: 'RIKO DU HAST EIN HUT AUF'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'YVE LOVE'
+    speed: 1
+  - text: 'HALLO FABIAN'
+    speed: 1
+  - text: 'HI NIKLAS'
+    speed: 1
+  - text: 'THIS IS A TEST'
+    speed: 1
+  - text: 'NO THANK YOU'
+    speed: 1
+  - text: 'HAALO'
+    speed: 1
+  - text: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'NEVER GONNA GIVE YOUUP'
+    speed: 1
+  - text: 'KLEINER INDIANER'
+    speed: 1
+  - text: 'GERONIMO'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'COFFEE'
+    speed: 1
+  - text: 'FUCK GOOGLE'
+    speed: 1
+  - text: 'OUT OF COFFEE'
+    speed: 1
+  - text: 'DUCKS FLEW AWAY'
+    speed: 1
+  - text: 'DUCKS FLEW AWAY'
+    speed: 1
+  - text: 'DUPAA'
+    speed: 1
+  - text: 'IAMEXCITED'
+    speed: 1
+  - text: 'STRANGE'
+    speed: 1
+  - text: 'WHATSUP'
+    speed: 1
+  - text: 'BLA BLA'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'MENKAA TOIHIN SAATANA KRACK THE PLANET'
+    speed: 1
+  - text: 'POSTATKAA MEEMEJA'
+    speed: 1
+  - text: 'MIAOU'
+    speed: 1
+  - text: 'LOL'
+    speed: 1
+  - text: 'JHHBGVVGVHJNB'
+    speed: 1
+  - text: 'INDIPENDENCE'
+    speed: 1
+  - text: 'TAIWAN INDEPENDENCE'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'FOOBAR'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'QWERTYUIOPASDFGHJKLZXCVBNM'
+    speed: 1
+  - text: 'TESTING'
+    speed: 1
+  - text: 'STRANFGWER TYINGS'
+    speed: 1
+  - text: 'HALLO WELT'
+    speed: 1
+  - text: 'FIGHT COPS'
+    speed: 1
+  - text: 'NIETZSCHE'
+    speed: 1
+  - text: 'THIS IS NO TEXT'
+    speed: 1
+  - text: 'BLOOD NIGHT RULES'
+    speed: 1
+  - text: 'DAS IST DAS HAUS VOM NIKOLAUS'
+    speed: 1
+  - text: 'ANTON'
+    speed: 1
+  - text: 'TILLMANN'
+    speed: 1
+  - text: 'IST SCHWUL'
+    speed: 1
+  - text: 'WHAT DO I SEE'
+    speed: 1
+  - text: 'WHAT DO I SEE'
+    speed: 1
+  - text: 'I LOVE YOU FELLOWS'
+    speed: 1
+  - text: 'ACH PODCAST'
+    speed: 1
+  - text: 'DEUS EH TOP'
+    speed: 1
+  - text: 'HI NATALIE'
+    speed: 1
+  - text: 'NATALIE'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'SAX'
+    speed: 1
+  - text: 'PEACE AND LOVE'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'HAVE A NICE CCC EVENT'
+    speed: 1
+  - text: 'WE NEED TO DESTROY CAPITALISM'
+    speed: 1
+  - text: 'ES WAR EINMAL'
+    speed: 1
+  - text: 'HELLO HOW ARE YOU'
+    speed: 1
+  - text: 'FUCK OF'
+    speed: 1
+  - text: 'REALY'
+    speed: 1
+  - text: 'DIE GANYE WELT ISTE EIN THEATER'
+    speed: 1
+  - text: 'HALLE WELT WIE GEHTS DIR HEUTE'
+    speed: 1
+  - text: 'TESTHELLO'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'I LOVE MATE'
+    speed: 1
+  - text: 'YO'
+    speed: 1
+  - text: 'ACAB'
+    speed: 1
+  - text: 'ACABACABACABACABACABACABACABACABACABACAB'
+    speed: 1
+  - text: 'FOOTSHARING'
+    speed: 1
+  - text: 'NOOBS HACK IT  BETTER'
+    speed: 1
+  - text: 'TRUST YOUR TECHNOLUST'
+    speed: 1
+  - text: 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
+    speed: 1
+  - text: 'FOOBAR'
+    speed: 1
+  - text: 'HI THERE HOW ARE YOU DOING'
+    speed: 1
+  - text: 'HASLLO'
+    speed: 1
+  - text: 'WER DAS LIEST IST DOOF'
+    speed: 1
+  - text: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    speed: 1
+  - text: 'THIS IS A TEST'
+    speed: 1
+  - text: 'THIS IS NO TEESYT'
+    speed: 1
+  - text: 'YOUR TEXT ENTER'
+    speed: 1
+  - text: 'WE'
+    speed: 1
+  - text: 'HALLO CARO'
+    speed: 1
+  - text: 'ALLES FIT'
+    speed: 1
+  - text: 'JA ICH BIN ZWAR SCHON EIN BISSCHEN BETRU'
+    speed: 1
+  - text: 'NKEN ABER ICH BIN SEHR GLUECKLICH MIT DI'
+    speed: 1
+  - text: 'ICH BETRUNKEN ABER GLUECKLICH'
+    speed: 1
+  - text: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    speed: 1
+  - text: 'THIOS IS A TEST'
+    speed: 1
+  - text: 'HASKELL'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'CAN YOU READ THIS'
+    speed: 1
+  - text: 'HALLO DIANA'
+    speed: 1
+  - text: 'ICH FINDE DICH GEIL'
+    speed: 1
+  - text: 'KNIDDL BLOEKT'
+    speed: 1
+  - text: 'TROMPET'
+    speed: 1
+  - text: 'LOVE'
+    speed: 1
+  - text: 'THE QUICK BROWN FOX JUMPS OVER THE LAYZ '
+    speed: 1
+  - text: 'LOL'
+    speed: 1
+  - text: 'LARS'
+    speed: 1
+  - text: 'LARS'
+    speed: 1
+  - text: 'CIAO'
+    speed: 1
+  - text: 'STRATUM'
+    speed: 1
+  - text: 'HOI'
+    speed: 1
+  - text: 'THIS IS A SENTENCE'
+    speed: 1
+  - text: 'I LOVE JOHANNA'
+    speed: 1
+  - text: 'MY PW IS EMPTY'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'WHOOOOOOAH'
+    speed: 1
+  - text: 'QAZWSXEDCRFVTGBYHNUJMIKOLPQPMZ'
+    speed: 1
+  - text: 'GOOGLE'
+    speed: 1
+  - text: 'HI'
+    speed: 1
+  - text: ' SMOKE WEED'
+    speed: 1
+  - text: 'WORTE IN EINEM SATZ'
+    speed: 1
+  - text: 'YOU ARE ZEN'
+    speed: 1
+  - text: 'PLS KILL ME'
+    speed: 1
+  - text: 'HELLO I WONDER WHO YOU ARE  IN THAT BOON'
+    speed: 1
+  - text: 'QWERTY'
+    speed: 1
+  - text: 'GET ME BEER'
+    speed: 1
+  - text: 'TUWAT'
+    speed: 1
+  - text: 'ADMIN'
+    speed: 1
+  - text: 'PZZZZZZZ'
+    speed: 1
+  - text: 'PLS KILL ME'
+    speed: 1
+  - text: 'COMMUNISM'
+    speed: 1
+  - text: 'PLS KILL ME'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'ULYSSIS '
+    speed: 1
+  - text: 'HI'
+    speed: 1
+  - text: 'ENTER ZOUR TEXT'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'GUCKGUCK'
+    speed: 1
+  - text: 'FOOBAR'
+    speed: 1
+  - text: 'DIES IST EIN TEXT'
+    speed: 1
+  - text: 'HELP'
+    speed: 1
+  - text: 'PUTOELQUELEE'
+    speed: 1
+  - text: 'STYROFOAM'
+    speed: 1
+  - text: 'VITALER NEBEL MIT SINN IST IM LEBEN RELA'
+    speed: 1
+  - text: 'WANNA BUY SOME WEED'
+    speed: 1
+  - text: 'GOOD MORNING CONGRESS'
+    speed: 1
+  - text: 'RESIST'
+    speed: 1
+  - text: 'HELLO CONGRESS'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'COFFEE'
+    speed: 1
+  - text: 'FUCK OFF GOOGLE'
+    speed: 1
+  - text: 'PASSWRDQWERTY'
+    speed: 1
+  - text: 'ICH KOMME IN FRIEDENFEEL FREE'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'LARI FARI '
+    speed: 1
+  - text: 'KLONFISH IST DOOF'
+    speed: 1
+  - text: 'GGWP'
+    speed: 1
+  - text: 'KLONFISH IST DICK'
+    speed: 1
+  - text: 'ALEXANDER'
+    speed: 1
+  - text: 'ALEXANDER'
+    speed: 1
+  - text: 'BLA'
+    speed: 1
+  - text: 'GFU'
+    speed: 1
+  - text: 'HEEEE'
+    speed: 1
+  - text: 'ABC'
+    speed: 1
+  - text: 'HI'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'TESTTTTTTT'
+    speed: 1
+  - text: 'TESTING'
+    speed: 1
+  - text: 'TYPE YOUR TEXT THEN PRESS ENTERFNORD'
+    speed: 1
+  - text: 'MORE BEER'
+    speed: 1
+  - text: 'HALLO NA WIE GEHTS '
+    speed: 1
+  - text: 'HUFFLEPUFF'
+    speed: 1
+  - text: 'HALLIHALLO WAS GEHGT AB IN DA HOOOOD'
+    speed: 1
+  - text: 'JO'
+    speed: 1
+  - text: 'HALLO ANNA'
+    speed: 1
+  - text: 'DAS IST EIN TEST'
+    speed: 1
+  - text: 'HALLO'
+    speed: 1
+  - text: 'WHY'
+    speed: 1
+  - text: 'TSCHUESS'
+    speed: 1
+  - text: 'OPENBSDORDIE'
+    speed: 1
+  - text: 'OPENBSDORDIE'
+    speed: 1
+  - text: 'GOOGLE'
+    speed: 1
+  - text: 'GOOGLE MY ASSSO LONG FACEBOOK'
+    speed: 1
+  - text: 'GOOGLEFACE'
+    speed: 1
+  - text: 'FELIX'
+    speed: 1
+  - text: 'JBH'
+    speed: 1
+  - text: 'FUCK NSAA'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'ALLES GUT BEI UNS'
+    speed: 1
+  - text: 'EH HUHU WIE GEHTSNERDS'
+    speed: 1
+  - text: 'THIS IS NOT A TEST'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'RUN'
+    speed: 1
+  - text: 'KATER'
+    speed: 1
+  - text: 'TRUSTNOONE'
+    speed: 1
+  - text: 'MENKAATOIHIN'
+    speed: 1
+  - text: 'LCDFTW'
+    speed: 1
+  - text: 'LEDMAGIC'
+    speed: 1
+  - text: 'HALLO WAS GEHT'
+    speed: 1
+  - text: 'HOERNCHEN'
+    speed: 1
+  - text: 'NEVER GONNA GIVE YOU UP'
+    speed: 1
+  - text: 'EMZY'
+    speed: 1
+  - text: 'YHIS IS MZ SEMWWWWW THIS IS A SENTENCE'
+    speed: 1
+  - text: 'ALPHABET'
+    speed: 1
+  - text: 'HAD A GREAT C'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HI'
+    speed: 1
+  - text: 'WAS GEHT AB'
+    speed: 1
+  - text: 'I AM A LITTLE MONKEY'
+    speed: 1
+  - text: 'RUN'
+    speed: 1
+  - text: 'NORAMAL PEOPLE SCARE ME'
+    speed: 1
+  - text: 'DAS INTERNET ZERSTOERT DEIN LEBEN'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'I LOVE EWE'
+    speed: 1
+  - text: 'TU MADRE'
+    speed: 1
+  - text: 'TU MADRE'
+    speed: 1
+  - text: 'TU MADRE'
+    speed: 1
+  - text: 'QWERTY'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'SDFDGYHFSGSDFGDGDGB'
+    speed: 1
+  - text: 'HELLO BEAUTIFUL NERDS'
+    speed: 1
+  - text: 'GULLET'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'ASDQWER'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'FLORIAN'
+    speed: 1
+  - text: 'FOR'
+    speed: 1
+  - text: 'LOL'
+    speed: 1
+  - text: 'PENIS'
+    speed: 1
+  - text: 'XORZ'
+    speed: 1
+  - text: 'HACK THE PLANET'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'TEST'
+    speed: 1
+  - text: 'TESRDSDFFVADVBAKDFBV'
+    speed: 1
+  - text: 'AWOOOOO'
+    speed: 1
+  - text: 'TWAS BRILLIG AND THE SLITHY TOVES'
+    speed: 1
+  - text: 'BITE ET COUILLE'
+    speed: 1
+  - text: 'ISEE DEAD PEOPLE'
+    speed: 1
+  - text: 'SO IT GOES'
+    speed: 1
+  - text: 'CENT TRENTE KILOMETRES PAR HEURE MANU OK'
+    speed: 1
+  - text: 'QUI VIVE QUI VIVE'
+    speed: 1
+  - text: 'BIG BROTHER IS WATCHING YOU'
+    speed: 1
+  - text: 'CENT'
+    speed: 1
+  - text: 'CENT TRENTRE KM MANU'
+    speed: 1
+  - text: 'CENT TRENTE KM MANU'
+    speed: 1
+  - text: '   KING KONG DIED FOR YOUR SINS '
+    speed: 1
+  - text: 'HELLLO CCC WHAT HAPPENS HERE'
+    speed: 1
+  - text: 'THE COMPUTER IS YOUR FRIEND'
+    speed: 1
+  - text: 'THE COMPUTER WANTS YOU TO BE HAPPY'
+    speed: 1
+  - text: 'HAPPYNESS IS MANDATORY'
+    speed: 1
+  - text: 'WHZ NOTZRI'
+    speed: 1
+  - text: 'RIHQZYPG'
+    speed: 1
+  - text: 'CCC IS COOL'
+    speed: 1
+  - text: 'THIS IS NOT A KEYBOARD'
+    speed: 1
+  - text: 'I  LOVE RICK'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HELLO'
+    speed: 1
+  - text: 'O HI'
+    speed: 1
+  - text: 'HELLO WORLD'
+    speed: 1
+  - text: 'HELP I AM UPSIDE DOWN'
+    speed: 1
+  - text: 'THIS IS THE END'
+    speed: 1
+  - text: 'ASDF'
+    speed: 1
