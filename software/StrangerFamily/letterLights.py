@@ -7,7 +7,8 @@ from collections import OrderedDict
 import database
 
 try:
-    from neopixel_ import *
+    from neopixel import *
+    from rpi_ws281x import *
     print('neopixel found')
 except ImportError:
     print('neopixel not found!')
