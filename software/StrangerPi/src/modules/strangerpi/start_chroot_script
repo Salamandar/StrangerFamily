@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# <Script Name>
+# <Description what this module does>
+# Written by <Author>
+# GPL V3
+########
+
+
+# Source error handling, leave this in place
+set -x
+set -e
+
+source /common.sh
+install_cleanup_trap
+
+unpack /filesystem/home/pi /home/"${BASE_USER}" "${BASE_USER}"
+unpack /filesystem/home/root /root root
+unpack /filesystem/boot /boot
+
+echo "This is an example module, install and set up what you need here!"
+echo "$STRANGERPI_VAR"
+
+# Unpack root at the end, so files are modified before
+unpack /filesystem/root /
+
+
+###############################################################################
+
+install_rpi_ws281x() {
+    apt -y install git scons python3-pip
+
+    pushd /tmp
+        git clone https://github.com/jgarff/rpi_ws281x
+        pushd rpi_ws281x
+            scons -j"$(nproc)"
+        popd
+    popd
+    pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+}
+
+install_i2c() {
+    apt -y install i2c-tools libi2c-dev python3-smbus
+    echo "i2c-bcm2708" >> /etc/modules
+    echo "i2c-dev" >> /etc/modules
+    # For now: (useless inside chroot)
+    # modprobe "i2c-bcm2708"
+    # modprobe "i2c-dev"
+}
+
+
+install_stranger_family() {
+    apt -y install python3-yaml python3-evdev
+    systemctl enable stranger-family
+}
+
+apt -y update
+# && apt upgrade -y
+
+install_i2c
+install_rpi_ws281x
+install_stranger_family

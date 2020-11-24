@@ -1,0 +1,5 @@
+workspace
+image
+src/modules/strangerpi/filesystem/home/pi/StrangerFamily/
+src/build.log
+src/custompios_path
