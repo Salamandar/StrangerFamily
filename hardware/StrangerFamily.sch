@@ -213,7 +213,7 @@ U 1 1 5F077715
 P 2300 2700
 F 0 "J5" H 1650 3950 50  0000 C CNN
 F 1 "Raspberry_Pi_zero" H 2850 3950 50  0000 C CNN
-F 2 "Module:Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles" H 2300 2700 50  0001 C CNN
+F 2 "stranger_family_lib:Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles" H 2300 2700 50  0001 C CNN
 F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 2300 2700 50  0001 C CNN
 	1    2300 2700
 	1    0    0    -1  
@@ -541,7 +541,7 @@ U 1 1 5F1840C9
 P 8250 1500
 F 0 "C1" V 8100 1500 50  0000 C CNN
 F 1 "C" V 8200 1600 50  0000 C CNN
-F 2 "" H 8288 1350 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8288 1350 50  0001 C CNN
 F 3 "~" H 8250 1500 50  0001 C CNN
 	1    8250 1500
 	0    1    1    0   

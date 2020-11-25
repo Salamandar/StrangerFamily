@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name stranger_family_lib)(type KiCad)(uri ${KIPRJMOD}/libraries/stranger_family_lib)(options "")(descr ""))
+)
