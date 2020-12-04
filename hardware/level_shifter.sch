@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 3 4
 Title ""
 Date ""
 Rev ""
@@ -22,6 +22,11 @@ AR Path="/5F0C0EC0/5F0C7707" Ref="Q1"  Part="1"
 AR Path="/5F0CC9C0/5F0C7707" Ref="Q2"  Part="1" 
 AR Path="/5F0E3A96/5F0C7707" Ref="Q3"  Part="1" 
 AR Path="/5F100AA1/5F0C7707" Ref="Q4"  Part="1" 
+AR Path="/5FC9613F/5F0C7707" Ref="Q4"  Part="1" 
+AR Path="/5FC7A580/5F0C7707" Ref="Q?"  Part="1" 
+AR Path="/5FCCC92D/5F0C7707" Ref="Q?"  Part="1" 
+AR Path="/5FCFD90D/5F0C7707" Ref="Q3"  Part="1" 
+AR Path="/5FD019AC/5F0C7707" Ref="Q4"  Part="1" 
 F 0 "Q4" V 5749 2900 50  0000 C CNN
 F 1 "BSS138" V 5840 2900 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 5700 2825 50  0001 L CIN
@@ -38,9 +43,14 @@ AR Path="/5F0C0EC0/5F0C770D" Ref="R2"  Part="1"
 AR Path="/5F0CC9C0/5F0C770D" Ref="R4"  Part="1" 
 AR Path="/5F0E3A96/5F0C770D" Ref="R6"  Part="1" 
 AR Path="/5F100AA1/5F0C770D" Ref="R8"  Part="1" 
-F 0 "R8" H 5150 2850 50  0000 R CNN
+AR Path="/5FC9613F/5F0C770D" Ref="R8"  Part="1" 
+AR Path="/5FC7A580/5F0C770D" Ref="R?"  Part="1" 
+AR Path="/5FCCC92D/5F0C770D" Ref="R?"  Part="1" 
+AR Path="/5FCFD90D/5F0C770D" Ref="R6"  Part="1" 
+AR Path="/5FD019AC/5F0C770D" Ref="R11"  Part="1" 
+F 0 "R11" H 5150 2850 50  0000 R CNN
 F 1 "10k" V 5200 2850 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5130 2850 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5130 2850 50  0001 C CNN
 F 3 "~" H 5200 2850 50  0001 C CNN
 	1    5200 2850
 	1    0    0    -1  
@@ -54,9 +64,14 @@ AR Path="/5F0C0EC0/5F0C7713" Ref="R3"  Part="1"
 AR Path="/5F0CC9C0/5F0C7713" Ref="R5"  Part="1" 
 AR Path="/5F0E3A96/5F0C7713" Ref="R7"  Part="1" 
 AR Path="/5F100AA1/5F0C7713" Ref="R9"  Part="1" 
-F 0 "R9" H 5850 2850 50  0000 L CNN
+AR Path="/5FC9613F/5F0C7713" Ref="R9"  Part="1" 
+AR Path="/5FC7A580/5F0C7713" Ref="R?"  Part="1" 
+AR Path="/5FCCC92D/5F0C7713" Ref="R?"  Part="1" 
+AR Path="/5FCFD90D/5F0C7713" Ref="R7"  Part="1" 
+AR Path="/5FD019AC/5F0C7713" Ref="R12"  Part="1" 
+F 0 "R12" H 5850 2850 50  0000 L CNN
 F 1 "10k" V 5800 2850 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5730 2850 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5730 2850 50  0001 C CNN
 F 3 "~" H 5800 2850 50  0001 C CNN
 	1    5800 2850
 	1    0    0    -1  
