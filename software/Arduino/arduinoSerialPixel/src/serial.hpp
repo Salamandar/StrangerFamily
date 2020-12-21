@@ -1,10 +1,10 @@
 #pragma once
 
-#include <cstdint>
+#include <stdint.h>
 
 class LEDsReceiver {
 public:
-    LEDsReceiver();
+    LEDsReceiver(uint16_t ledcount);
     ~LEDsReceiver();
 
     // returns true if a led is available
@@ -20,7 +20,8 @@ public:
         return false;
     }
 private:
-    uint32_t m_lastColor;
-    uint16_t m_lastLEDId;
-    bool m_should_show;
+    const uint16_t m_ledcount;
+    uint32_t m_lastColor = 0;
+    uint32_t m_lastLEDId = 0;
+    bool m_should_show = false;
 };
