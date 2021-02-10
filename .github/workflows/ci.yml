@@ -1,0 +1,71 @@
+name: StrangerFamily build
+
+on: [push, pull_request]
+
+
+jobs:
+  build_custom_pi_os:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with: { submodules: true }
+
+    - name: Cache chroot apt
+      uses: actions/cache@v2
+      with:
+        path: software/StrangerPi/src/workspace/aptcache/
+        key: ${{ runner.os }}-custompios-apt
+
+    - run: |
+        sudo apt update
+        sudo apt install qemu-user-static
+
+    - name: Build CustomPiOS
+      run: sudo GET_IMAGE=1 software/StrangerPi/src/build_dist
+
+    - name: Upload Raspberry pi image
+      uses: actions/upload-artifact@v2
+      with:
+        name: raspberry_pi_images
+        path: software/StrangerPi/image/*
+
+
+  build_arduino_firmware:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache pip
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Cache PlatformIO
+      uses: actions/cache@v2
+      with:
+        path: ~/.platformio
+        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+    - name: Install PlatformIO
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade platformio
+
+    - name: Run PlatformIO
+      run: |
+        cd software/Arduino/arduinoSerialPixel
+        pio run -e nanoatmega328new -e nanoatmega328
+
+    - name: Upload Arduino firmware
+      uses: actions/upload-artifact@v2
+      with:
+        name: arduino_firmwares
+        path: |
+          software/Arduino/arduinoSerialPixel/.pio/build/nanoatmega328/firmware.*
+          software/Arduino/arduinoSerialPixel/.pio/build/nanoatmega328new/firmware.*
