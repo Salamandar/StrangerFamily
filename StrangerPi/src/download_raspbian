@@ -3,8 +3,11 @@ set -Eeuo pipefail
 
 echo "Downloading latest Raspbian image"
 
+version="raspios_lite_armhf"
+
+
 if ! CURRENT_RASPBIAN=$(
-    curl https://downloads.raspberrypi.org/raspbian_lite/images/ \
+    curl "https://downloads.raspberrypi.org/$version/images/" \
     | grep raspbian | tail -n 1 | awk -F "href=\"" '{print $2}' | awk -F "/" '{print $1}'
 ); then
     echo "error getting date"
@@ -14,12 +17,12 @@ echo "$CURRENT_RASPBIAN"
 
 
 CURRENT_RASPBIAN_FILE=$(
-    curl http://downloads.raspberrypi.org/raspbian_lite/images/${CURRENT_RASPBIAN}/ \
+    curl "https://downloads.raspberrypi.org/$version/images/$CURRENT_RASPBIAN/" \
     | grep .zip | head -n 1 | awk -F "href=\"" '{print $2}' | awk -F "\">" '{print $1}'
 )
 
 echo "$CURRENT_RASPBIAN_FILE"
 
-mkdir -p "${DEST}/src/image"
-curl -L -o "${DEST}/src/image/${CURRENT_RASPBIAN_FILE}" \
-https://downloads.raspberrypi.org/raspbian_lite/images/${CURRENT_RASPBIAN}/${CURRENT_RASPBIAN_FILE}
+mkdir -p "$DEST/src/image"
+curl -L -o "$DEST/src/image/$CURRENT_RASPBIAN_FILE" \
+"https://downloads.raspberrypi.org/$version/images/$CURRENT_RASPBIAN/$CURRENT_RASPBIAN_FILE"
