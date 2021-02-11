@@ -26,6 +26,18 @@ unpack /filesystem/root /
 
 ###############################################################################
 
+setup_serial() {
+    # Disable serial to bluetooth chip
+    systemctl stop serial-getty@ttyS0.service
+    systemctl disable serial-getty@ttyS0.service
+
+    # Disable console on serial device
+    sed -i 's|console=serial.,[0-9]* ||' /boot/cmdline.txt
+
+    # Enable UART
+    echo "enable_uart=1" >> /boot/config.txt
+}
+
 install_i2c() {
     apt-get -y install i2c-tools libi2c-dev python3-smbus
     echo "i2c-bcm2708" >> /etc/modules
