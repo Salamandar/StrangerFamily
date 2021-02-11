@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: raspberry_pi_images
-        path: software/StrangerPi/image/*
+        path: software/StrangerPi/src/workspace/*.img
 
 
   build_arduino_firmware:
