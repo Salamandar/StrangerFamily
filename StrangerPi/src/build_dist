@@ -10,7 +10,7 @@ if [ "${GET_IMAGE:-}" ]; then
 fi
 
 rsync -av --delete \
-    "$DIR/../../StrangerFamily" \
+    "$DIR/../../pyStranger" \
     "$DIR/modules/strangerpi/filesystem/home/pi"
 
 "$CUSTOM_PI_OS_PATH/build_custom_os" "$@"

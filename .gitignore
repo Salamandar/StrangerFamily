@@ -10,3 +10,6 @@ gerber/
 
 .vscode
 
+.ropeproject
+__pycache__
+build.log

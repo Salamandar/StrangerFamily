@@ -14,18 +14,18 @@ jobs:
     - name: Cache Raspbian image
       uses: pat-s/always-upload-cache@v2.1.3
       with:
-        path: software/StrangerPi/src/image
+        path: StrangerPi/src/image
         key: ${{ runner.os }}-raspbian-image
 
     - name: Download Raspbian Image
       run: |
-        cd software/StrangerPi/src/image
+        cd StrangerPi/src/image
         wget -c --trust-server-names 'https://downloads.raspberrypi.org/raspios_lite_armhf_latest'
 
     - name: Cache chroot apt
       uses: pat-s/always-upload-cache@v2.1.3
       with:
-        path: software/StrangerPi/src/workspace/aptcache/
+        path: StrangerPi/src/workspace/aptcache/
         key: ${{ runner.os }}-custompios-apt
 
     - run: |
@@ -33,13 +33,13 @@ jobs:
         sudo apt install qemu-user-static
 
     - name: Build CustomPiOS
-      run: sudo software/StrangerPi/src/build_dist
+      run: sudo StrangerPi/src/build_dist
 
     - name: Upload Raspberry pi image
       uses: actions/upload-artifact@v2
       with:
         name: raspberry_pi_images
-        path: software/StrangerPi/src/workspace/*.img
+        path: StrangerPi/src/workspace/*.img
 
 
   build_arduino_firmware:
@@ -70,7 +70,7 @@ jobs:
 
     - name: Run PlatformIO
       run: |
-        cd software/Arduino/arduinoSerialPixel
+        cd Arduino/arduinoSerialPixel
         pio run -e nanoatmega328new -e nanoatmega328
 
     - name: Upload Arduino firmware
@@ -78,5 +78,5 @@ jobs:
       with:
         name: arduino_firmwares
         path: |
-          software/Arduino/arduinoSerialPixel/.pio/build/nanoatmega328/firmware.*
-          software/Arduino/arduinoSerialPixel/.pio/build/nanoatmega328new/firmware.*
+          Arduino/arduinoSerialPixel/.pio/build/nanoatmega328/firmware.*
+          Arduino/arduinoSerialPixel/.pio/build/nanoatmega328new/firmware.*

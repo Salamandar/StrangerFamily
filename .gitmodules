@@ -1,4 +1,4 @@
-[submodule "software/StrangerPi/CustomPiOS"]
-	path = software/StrangerPi/CustomPiOS
+[submodule "StrangerPi/CustomPiOS"]
+	path = StrangerPi/CustomPiOS
 	#url = https://github.com/guysoft/CustomPiOS.git
     url = https://github.com/Salamandar/CustomPiOS.git
