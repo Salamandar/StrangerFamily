@@ -70,7 +70,7 @@ jobs:
 
     - name: Run PlatformIO
       run: |
-        cd Arduino/arduinoSerialPixel
+        cd arduinoSerialPixel
         pio run -e nanoatmega328new -e nanoatmega328
 
     - name: Upload Arduino firmware
@@ -78,5 +78,5 @@ jobs:
       with:
         name: arduino_firmwares
         path: |
-          Arduino/arduinoSerialPixel/.pio/build/nanoatmega328/firmware.*
-          Arduino/arduinoSerialPixel/.pio/build/nanoatmega328new/firmware.*
+          arduinoSerialPixel/.pio/build/nanoatmega328/firmware.*
+          arduinoSerialPixel/.pio/build/nanoatmega328new/firmware.*
