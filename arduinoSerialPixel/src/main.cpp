@@ -7,13 +7,14 @@ LEDStrip* strip;
 LEDsReceiver* uart_receiver;
 
 const int ledcount = 24;
+const unsigned int baudrate = 115200;
 
 void setup()
 {
     LEDStrip::set_arduino_is_out(true);
 
     strip = new LEDStrip(ledcount);
-    uart_receiver = new LEDsReceiver(ledcount);
+    uart_receiver = new LEDsReceiver(ledcount, baudrate);
 
     // Start Sequence
     strip->setAll(strip->RED);

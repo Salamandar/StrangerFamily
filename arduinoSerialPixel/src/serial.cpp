@@ -2,7 +2,6 @@
 #include "Arduino.h"
 
 #define SHOWDELAY  200       // Delay in micro seconds before showing default 200
-#define BAUDRATE   115200    // Serial port speed, 460800 tested with Arduino Uno R3 23400 za MEGA, 115200 nano
 
 int state;                   // Define current state
 #define STATE_WAITING   1    // - Waiting for prefix
@@ -23,10 +22,10 @@ void flush_stream(Stream& serial){
 }
 
 
-LEDsReceiver::LEDsReceiver(uint16_t ledcount)
+LEDsReceiver::LEDsReceiver(uint16_t ledcount, unsigned long baudrate)
 : m_ledcount(ledcount)
  {
-    Serial.begin(BAUDRATE);
+    Serial.begin(baudrate);
     state = STATE_WAITING;    // Initial state: Waiting for prefix
     Serial.println("Ready");
 }

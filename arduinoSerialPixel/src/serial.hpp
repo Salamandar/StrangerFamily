@@ -4,7 +4,7 @@
 
 class LEDsReceiver {
 public:
-    LEDsReceiver(uint16_t ledcount);
+    LEDsReceiver(uint16_t ledcount, unsigned long baudrate);
     ~LEDsReceiver();
 
     // returns true if a led is available
