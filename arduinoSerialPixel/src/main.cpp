@@ -10,17 +10,20 @@ const int ledcount = 24;
 
 void setup()
 {
+    LEDStrip::set_arduino_is_out(true);
+
     strip = new LEDStrip(ledcount);
     uart_receiver = new LEDsReceiver(ledcount);
 
-    for (size_t i = 0; i < 3; i++) {
-        strip->setAll(strip->STARTCOLOR);
-        delay(200);
-        strip->setAll(0x000000);
-        delay(200);
-    }
-
-
+    // Start Sequence
+    strip->setAll(strip->RED);
+    delay(500);
+    strip->setAll(strip->BLUE);
+    delay(500);
+    strip->setAll(strip->GREEN);
+    delay(500);
+    strip->setAll(strip->STARTCOLOR);
+    delay(200);
 }
 
 

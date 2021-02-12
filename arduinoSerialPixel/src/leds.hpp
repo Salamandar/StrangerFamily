@@ -37,10 +37,18 @@ public:
         commit();
     }
 
+
+    static void set_arduino_is_out(bool is_out) {
+        pinMode(m_pin_arduino_is_out, OUTPUT);
+        digitalWrite(m_pin_arduino_is_out, is_out ? HIGH : LOW);
+    }
+
 private:
     const uint16_t m_ledcount;
     const uint16_t m_datapin = 6;
     const uint8_t  m_brightness = 10;
+
+    static const uint16_t m_pin_arduino_is_out = 7;
 
     Adafruit_NeoPixel leds;
 
