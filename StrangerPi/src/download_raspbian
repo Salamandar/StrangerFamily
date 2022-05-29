@@ -8,7 +8,7 @@ version="raspios_lite_armhf"
 
 if ! CURRENT_RASPBIAN=$(
     curl "https://downloads.raspberrypi.org/$version/images/" \
-    | grep raspbian | tail -n 1 | awk -F "href=\"" '{print $2}' | awk -F "/" '{print $1}'
+    | grep raspios | tail -n 1 | awk -F "href=\"" '{print $2}' | awk -F "/" '{print $1}'
 ); then
     echo "error getting date"
     exit 1
@@ -18,7 +18,7 @@ echo "$CURRENT_RASPBIAN"
 
 CURRENT_RASPBIAN_FILE=$(
     curl "https://downloads.raspberrypi.org/$version/images/$CURRENT_RASPBIAN/" \
-    | grep .zip | head -n 1 | awk -F "href=\"" '{print $2}' | awk -F "\">" '{print $1}'
+    | grep .img.xz | head -n 1 | awk -F "href=\"" '{print $2}' | awk -F "\">" '{print $1}'
 )
 
 echo "$CURRENT_RASPBIAN_FILE"
