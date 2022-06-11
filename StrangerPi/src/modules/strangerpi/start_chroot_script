@@ -65,7 +65,7 @@ install_stranger_family() {
 }
 
 apt-get -y update
-# apt-get -y upgrade
+apt-get -y upgrade
 
 install_i2c
 install_rpi_ws281x
