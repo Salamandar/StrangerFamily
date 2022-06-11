@@ -4,7 +4,7 @@ DefaultDependencies=false
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /home/pi/StrangerFamily/stranger_family.py
+ExecStart=/usr/bin/python3 /home/pi/pyStranger/stranger_family.py
 
 [Install]
 WantedBy=sysinit.target
