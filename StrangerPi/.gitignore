@@ -1,5 +1,5 @@
 workspace
 image
-src/modules/strangerpi/filesystem/home/pi/StrangerFamily/
+src/modules/strangerpi/filesystem/home/pi/pyStranger/
 src/custompios_path
 .vagrant
