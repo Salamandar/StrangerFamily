@@ -4,6 +4,7 @@ import os,sys,signal
 import time,argparse,random,colorsys
 from collections import OrderedDict
 
+import atexit
 import database
 
 try:
@@ -281,12 +282,9 @@ class LetterLights():
             if i-j-1 >= 0:
                 self.strip.setPixelColor(i-j-1, Color(0,0,0))
 
-            self.strip.show()
-            time.sleep(timeFixed)
+            self.strip.show()import atexit
 
-    def onePrint(self):
-        sentence = self.stringdb.getRandSentence()
-        self.lcdscreen.setLedsText(sentence.text)
+atexit.register(savecounter)tence.text)
         sequenceOfAlphabets = list(sentence.text.upper())
 
         total = len(sequenceOfAlphabets)
@@ -316,3 +314,5 @@ if __name__ == '__main__':
 
     # letterLights.onePrint()
     letterLights.chenillard()
+
+atexit.register(letterLights.shutoffLights)
